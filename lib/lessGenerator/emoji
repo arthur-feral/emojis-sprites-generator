@@ -1,3 +1,4 @@
 .idz-emoji-<%emojiName%> {
     background-position: <%emojiXPosition%> 0;
 }
+

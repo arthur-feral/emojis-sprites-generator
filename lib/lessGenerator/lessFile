@@ -1,4 +1,4 @@
-@emojiCharSize: 24px;
+@emojiCharSize: <%emojiSize%>px;
 
 [class^="idz-emoji-"], [class*=" idz-emoji-"] {
     background: transparent url("<%pathToSprite%>") 0 0 no-repeat;
@@ -8,3 +8,4 @@
     width: @emojiCharSize;
     vertical-align: middle;
 }
+
