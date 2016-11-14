@@ -1,0 +1,44 @@
+{
+  "categories": [
+    {
+      "name": "people",
+      "fullname": "Smileys & People",
+      "logo": "😃",
+      "emojis": [
+        {
+          "char": "😀",
+          "name": "grinning-face",
+          "fullname": "Grinning Face",
+          "codepoints": "1F600",
+          "shortcode": ":grinning:",
+          "keywords": [
+            "face",
+            "smile",
+            "happy",
+            "joy",
+            ":D",
+            "grin"
+          ]
+        },
+        {
+          "char": "😀",
+          "name": "winking-face",
+          "fullname": "Winking Face",
+          "codepoints": "1F601",
+          "shortcode": ":winking:",
+          "keywords": [
+            "face",
+            "smile",
+            ";)",
+            "wink"
+          ]
+        }
+      ]
+    }
+  ],
+  "shortcuts": [
+    {
+      "<3": "😬"
+    }
+  ]
+}

@@ -19,13 +19,13 @@
   "license": "ISC",
   "dependencies": {
     "gm": "^1.23.0",
+    "image-size": "^0.5.0",
     "lodash": "^4.17.0",
     "when": "^3.7.7"
   },
   "devDependencies": {
     "babel-register": "^6.18.0",
     "chai": "^3.5.0",
-    "image-size": "^0.5.0",
     "mocha": "^3.1.2",
     "sinon": "^1.17.6"
   }

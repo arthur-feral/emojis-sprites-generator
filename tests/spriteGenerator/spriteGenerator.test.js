@@ -2,14 +2,14 @@
 
 const sizeOf = require('image-size');
 const fs = require('fs');
-const spriteGenerator = require('../index.js').spriteGenerator;
-const resultFile = 'tests/emojis.png';
+const spriteGenerator = require('../../index.js').spriteGenerator;
+const resultFile = `${__dirname}/emojis.png`;
 
 describe('spriteGenerator', () => {
   it('creates a sprite image', (done) => {
-    spriteGenerator('tests/images/', resultFile).then(() => {
+    spriteGenerator(`${__dirname}/images/`, resultFile).then(() => {
       expect(function() {
-        fs.readFileSync('tests/emojis.png');
+        fs.readFileSync(resultFile);
       }).to.not.throw(Error);
       fs.unlinkSync(resultFile);
       done();
@@ -17,7 +17,7 @@ describe('spriteGenerator', () => {
   });
 
   it('should have specified size', (done) => {
-    spriteGenerator('tests/images/', resultFile, 24).then(() => {
+    spriteGenerator(`${__dirname}/images/`, resultFile, 24).then(() => {
       const dimensions = sizeOf(resultFile);
       expect(dimensions.width).to.equal(48);
       expect(dimensions.height).to.equal(24);
