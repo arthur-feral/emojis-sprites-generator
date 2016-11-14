@@ -18,7 +18,9 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.0"
+    "gm": "^1.23.0",
+    "lodash": "^4.17.0",
+    "when": "^3.7.7"
   },
   "devDependencies": {
     "babel-register": "^6.18.0",
