@@ -1,0 +1,29 @@
+{
+  "name": "emojis-sprite-generator",
+  "version": "0.1.0",
+  "description": "Build an emojis sprite, collect emojis datas from unicode.org website",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-register -r tests/bootstrap.js $(find ./ -name '*.test.js')"
+  },
+  "keywords": [
+    "emojis",
+    "generator",
+    "emoji",
+    "sprite"
+  ],
+  "authors": [
+    "Arthur Féral <arthur.feral@hotmail.fr>",
+    "Jules Tréhorel"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.0"
+  },
+  "devDependencies": {
+    "babel-register": "^6.18.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2",
+    "sinon": "^1.17.6"
+  }
+}
