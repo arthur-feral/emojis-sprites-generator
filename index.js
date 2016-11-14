@@ -5,10 +5,18 @@ const fs = require('fs');
 const gm = require('gm');
 const when = require('when');
 
-let emojisSpriteGenerator = (sourcePath, destPath) => {
+/**
+ * concat images contained into sourcePath to an unique sprite image
+ * @param {string} sourcePath folder containing all sources images
+ * @param {string} destPath folder where the result sprite will be writen
+ * @param {int} size (optional) an height in pixel the sprite should have
+ * @returns {Promise}
+ */
+let emojisSpriteGenerator = (sourcePath, destPath, size) => {
   const path = `${process.cwd()}/${sourcePath}`;
   const filesPaths = fs.readdirSync(path);
   let result = null;
+
   return when.promise((resolve, reject) => {
     if (filesPaths.length) {
       try {
@@ -21,6 +29,9 @@ let emojisSpriteGenerator = (sourcePath, destPath) => {
             result.append(fileFullPath, true);
           }
         });
+        if (size) {
+          result.resize(filesPaths * size, size);
+        }
         result.write(destPath, (error) => {
           if (error) {
             reject(error);

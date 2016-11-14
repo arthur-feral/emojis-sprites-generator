@@ -10,7 +10,7 @@ describe('emojisSpriteGenerator', () => {
       expect(function() {
         fs.readFileSync('tests/emojis.png');
       }).to.not.throw(Error);
-      fs.unlinkSync(resultFile);
+      //fs.unlinkSync(resultFile);
       done();
     }).catch(done);
   });
