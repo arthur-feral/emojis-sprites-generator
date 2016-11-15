@@ -3,6 +3,7 @@
 const _ = require('lodash');
 const gm = require('gm');
 const fs = require('fs');
+const when = require('when');
 
 const lessGenerator = require('./lib/lessGenerator');
 const nl = (process.platform === 'win32' ? '\r\n' : '\n');
@@ -33,12 +34,13 @@ const generator = (config) => {
 
   let lessFile = '';
   const spritePath = `${destinationPath}/emojis.png`;
+  const lessPath = `${destinationPath}/emojis.less`;
   let emojisCount = 0;
   let sprite = null;
   _.each(emojisList.categories, (category) => {
     _.each(category.emojis, (emoji) => {
-      let imagePath = `${pathToEmojisImages}/${emoji.name}.png`.split('/').filter((tempPath) => tempPath.length).join('/');
-      if(!sprite) {
+      let imagePath = `${pathToEmojisImages}/${emoji.name}.png`;
+      if (!sprite) {
         sprite = gm(imagePath)
       } else {
         sprite.append(imagePath, true);
@@ -48,17 +50,25 @@ const generator = (config) => {
     });
   });
 
-  lessFile = [lessFile, lessGenerator.base(spritePath, emojisCount, size)].join(nl);
+  lessFile = [lessGenerator.base(spritePath, emojisCount, size), lessFile].join(nl);
 
   if (size) {
     sprite.resize(emojisCount * size, size);
   }
-  sprite.write(destinationPath, (error) => {
-    if (error) {
-      throw new Error('Something went wrong while writing sprite');
-    }
+  return when.promise((resolve, reject) => {
+    sprite.write(spritePath, (error) => {
+      if (error) {
+        reject(error);
+      }
 
-    fs.writeFileSync(destinationPath, lessFile);
+      fs.writeFile(lessPath, lessFile, (err) => {
+        if (err) {
+          reject(err);
+        }
+
+        resolve();
+      });
+    });
   });
 };
 
