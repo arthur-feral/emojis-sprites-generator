@@ -1,7 +1,11 @@
 'use strict';
 
-const spriteGenerator = require('./lib/spriteGenerator');
+const _ = require('lodash');
+const gm = require('gm');
+const fs = require('fs');
+
 const lessGenerator = require('./lib/lessGenerator');
+const nl = (process.platform === 'win32' ? '\r\n' : '\n');
 
 /**
  * generate emojis sprite resources
@@ -14,9 +18,6 @@ const lessGenerator = require('./lib/lessGenerator');
  * }
  */
 const generator = (config) => {
-  // spriteGenerator(config.emojisImages, config.spriteDestination, config.emojisSize).then(()=> {
-  //   lessGenerator(config.spriteDestination, config.emojisList, config.spriteDestination, config.emojisSize);
-  // });
   const pathToEmojisImages = config.imagesPath;
   const emojisList = config.emojis;
   const destinationPath = config.destinationPath || process.cwd();
@@ -30,7 +31,35 @@ const generator = (config) => {
     throw new Error('The emojis list is required');
   }
 
-  
+  let lessFile = '';
+  const spritePath = `${destinationPath}/emojis.png`;
+  let emojisCount = 0;
+  let sprite = null;
+  _.each(emojisList.categories, (category) => {
+    _.each(category.emojis, (emoji) => {
+      let imagePath = `${pathToEmojisImages}/${emoji.name}.png`.split('/').filter((tempPath) => tempPath.length).join('/');
+      if(!sprite) {
+        sprite = gm(imagePath)
+      } else {
+        sprite.append(imagePath, true);
+      }
+      lessFile += lessGenerator.emoji(emoji.name, emojisCount, size);
+      emojisCount++;
+    });
+  });
+
+  lessFile = [lessFile, lessGenerator.base(spritePath, emojisCount, size)].join(nl);
+
+  if (size) {
+    sprite.resize(emojisCount * size, size);
+  }
+  sprite.write(destinationPath, (error) => {
+    if (error) {
+      throw new Error('Something went wrong while writing sprite');
+    }
+
+    fs.writeFileSync(destinationPath, lessFile);
+  });
 };
 
 module.exports = generator;
