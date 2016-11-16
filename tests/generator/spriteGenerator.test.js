@@ -1,7 +1,7 @@
 'use strict';
 
 const fs = require('fs');
-const generator = require('../index');
+const generator = require('../../lib').generator;
 const sizeOf = require('image-size');
 const imagesPath = [__dirname, 'images'].join('/');
 const destinationPath = __dirname;
