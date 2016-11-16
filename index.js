@@ -13,7 +13,7 @@ let throttle = new Throttle({
   active: true,     // set false to pause queue
   rate: 20,          // how many requests can be sent every `ratePer`
   ratePer: 50,   // number of ms in which `rate` requests may be sent
-  concurrent: 5     // how many requests can be sent concurrently
+  concurrent: 10     // how many requests can be sent concurrently
 });
 
 const emojisModule = (config) => {
@@ -22,38 +22,61 @@ const emojisModule = (config) => {
 
 console.log('Starting scrapper...');
 scrapper().then((datas) => {
+  let imagesDone = 0;
   let imagesRequest = [];
   const cwd = process.cwd();
+  const imagesPath = `${cwd}/images/`;
+
+  try {
+    fs.accessSync(imagesPath, fs.F_OK);
+  } catch (error) {
+    fs.mkdirSync(imagesPath);
+  }
   _.each(datas, (category) => {
     _.each(category.emojis, (emoji) => {
       _.each(emoji.themes, (theme) => {
         imagesRequest.push(when.promise((resolve, reject) => {
-          console.log(`Getting ${cwd}/images/${category.name}_${emoji.name}.png...`);
-          superagent.get(theme)
-            .use(throttle.plugin())
-            .end((error, result) => {
-              if (error) {
-                console.log('arf');
-                reject(error);
-              }
-              console.log(result);
-              fs.writeFile(`${cwd}/images/${category.name}_${emoji.name}.png`, result.body, function(error) {
+          _.mapValues(theme, function(url, key) {
+            let themePath = `${imagesPath}/${key}`;
+            try {
+              fs.accessSync(themePath, fs.F_OK);
+            } catch (error) {
+              fs.mkdirSync(themePath);
+            }
+
+            superagent.get(url)
+              .use(throttle.plugin())
+              .end((error, result) => {
+                let emojiPath = `${themePath}/${category.name}`;
                 if (error) {
-                  console.log('error', error);
+                  console.log('arf');
                   reject(error);
                 }
-                resolve(`${cwd}/images/${category.name}_${emoji.name}.png done.`);
+                imagesDone++;
+                try {
+                  fs.accessSync(emojiPath, fs.F_OK);
+                } catch (error) {
+                  fs.mkdirSync(emojiPath);
+                }
+                fs.writeFile(`${emojiPath}/${emoji.shortname}.png`, result.body, function(error) {
+                  if (error) {
+                    console.log('error', error);
+                    reject(error);
+                  }
+                  process.stdout.write(imagesDone + ' images downloaded \r');
+                  resolve(`${emojiPath}/${emoji.shortname}.png done.`);
+                });
               });
-            });
+          })
         }));
       });
     })
   });
-  fs.writeFileSync(`${cwd}/emojis.json`, JSON.stringify(emojis), 'utf8');
+  fs.writeFileSync(`${cwd}/emojis.json`, JSON.stringify(datas), 'utf8');
   console.log('Successfully writen emojis json file.');
   console.log(`getting ${imagesRequest.length} images...`);
   return when.all(imagesRequest).spread(function() {
-    console.log(`${arguments.length} images writen`);
+    console.log(`${imagesDone} images writen \n`);
   });
 }).finally(() => {
   console.log('Done.');
