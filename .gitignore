@@ -3,3 +3,4 @@
 node_modules/*
 emojis.json
 images/*
+.DS_Store
