@@ -35,7 +35,7 @@ const emojisModule = (config) => {
 };
 
 emojisModule({
-  size: 48,
+  size: 24,
   destination: 'test'
 });
 
