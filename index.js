@@ -2,41 +2,35 @@
 
 const generator = require('./lib').generator;
 const scrapper = require('./lib').scrapper;
+const crawl = require('./lib').crawler;
 const fs = require('fs');
 const _ = require('lodash');
 
 const emojisModule = (config) => {
   console.log('Starting scrapper...');
-  scrapper.scrap()
+  scrapper.scrap(config.fromCache)
+    .then(() => {
+      return crawl(config);
+    })
     .then((datas) => {
-      try {
-        fs.accessSync(config.destination, fs.F_OK);
-      } catch (error) {
-        fs.mkdirSync(config.destination);
-      }
-      fs.writeFileSync(`${config.destination}/emojis.json`, JSON.stringify(datas), 'utf8');
-      console.log('Successfully writen emojis json file.');
-
-      return scrapper.scrapImages(config, datas)
-        .then((themes)=> {
-          console.log('Generating sprites...');
-          _.each(themes, (theme) => {
-            let themeDatas = _.merge({}, datas);
-            _.each(datas, (category => {
-              themeDatas[category.name].emojis = _.sortBy(_.filter(category.emojis, (emoji) => _.has(emoji.themes, theme)), 'index');
-            }));
-
-            return generator.generateSprite(theme, themeDatas, config.size, config.destination);
-          });
-        }).finally(() => {
-          console.log('Done.');
-        });
-    });
+      return scrapper.scrapImages(config, datas);
+    }).then((themes) => {
+    // console.log('Generating sprites...');
+    // _.each(themes, (theme) => {
+    //   let themeDatas = _.merge({}, datas);
+    //   _.each(datas, (category => {
+    //     themeDatas[category.name].emojis = _.sortBy(_.filter(category.emojis, (emoji) => _.has(emoji.themes, theme)), 'index');
+    //   }));
+    //
+    //   return generator.generateSprite(theme, themeDatas, config.size, config.destination);
+    // });
+  });
 };
 
 emojisModule({
   size: 24,
-  destination: 'test'
+  destination: 'test',
+  fromCache: true
 });
 
 module.exports = emojisModule;
