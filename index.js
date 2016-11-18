@@ -2,13 +2,15 @@
 
 const generator = require('./lib').generator;
 const scrapper = require('./lib').scrapper;
+const crawl = require('./lib').crawler;
 const fs = require('fs');
 const _ = require('lodash');
 
 const emojisModule = (config) => {
   console.log('Starting scrapper...');
-  scrapper.scrap(config)
-    .then((datas) => {
+  scrapper.scrap(config.fromCache)
+    .then(crawl)
+    .then(() => {
       // try {
       //   fs.accessSync(config.destination, fs.F_OK);
       // } catch (error) {
@@ -36,7 +38,8 @@ const emojisModule = (config) => {
 
 emojisModule({
   size: 24,
-  destination: 'test'
+  destination: 'test',
+  fromCache: true
 });
 
 module.exports = emojisModule;
