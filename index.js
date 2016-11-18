@@ -8,10 +8,10 @@ const _ = require('lodash');
 
 const emojisModule = (config) => {
   console.log('Starting scrapper...');
-  scrapper.scrap(config.fromCache)
-    .then(() => {
-      return crawl(config);
-    })
+  scrapper.scrap(config)
+    // .then(() => {
+    //   return crawl(config);
+    // })
     .then((datas) => {
       return scrapper.scrapImages(config, datas);
     }).then((themes) => {
@@ -30,7 +30,7 @@ const emojisModule = (config) => {
 emojisModule({
   size: 24,
   destination: 'test',
-  fromCache: true
+  fromCache: false
 });
 
 module.exports = emojisModule;
