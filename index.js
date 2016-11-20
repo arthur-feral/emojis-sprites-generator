@@ -13,7 +13,7 @@ const emojisModule = (config) => {
     //   return crawl(config);
     // })
     .then((datas) => {
-      return scrapper.scrapImages(config, datas);
+      //return scrapper.scrapImages(config, datas);
     }).then((themes) => {
     // console.log('Generating sprites...');
     // _.each(themes, (theme) => {
