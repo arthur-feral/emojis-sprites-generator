@@ -29,10 +29,13 @@ const emojisModule = (config) => {
     });
 };
 
-emojisModule({
+module.exports = emojisModule;
+
+/**
+ *  Example
+ emojisModule({
   size: 24,
   destination: 'test',
-  fromCache: false
+  fromCache: true
 });
-
-module.exports = emojisModule;
+ */
