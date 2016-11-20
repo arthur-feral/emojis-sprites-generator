@@ -3,8 +3,35 @@
 const generator = require('./lib').generator;
 const scrapper = require('./lib').scrapper;
 const when = require('when');
-const fs = require('fs');
 const _ = require('lodash');
+const DEFAULT_CONFIG = {
+  destination: [process.cwd(), 'emojis-generator'].join('/'),
+  size: 24,
+  fromCache: false,
+  prefix: 'emojis'
+};
+
+const getConfig = (commander) => {
+  let config = DEFAULT_CONFIG;
+
+  if (commander.destination) {
+    config['destination'] = commander.destination;
+  }
+
+  if (commander.size) {
+    config['size'] = commander.size;
+  }
+
+  if (commander.prefix) {
+    config['prefix'] = commander.prefix;
+  }
+
+  if (commander.cache) {
+    config['fromCache'] = commander.fromCache;
+  }
+
+  return config;
+};
 
 const emojisModule = (config) => {
   console.log('Starting scrapper...');
@@ -29,13 +56,22 @@ const emojisModule = (config) => {
     });
 };
 
-module.exports = emojisModule;
+const run = (commander) => {
+  let config = getConfig(commander);
+
+  emojisModule(config);
+};
+
+module.exports = {
+  run
+};
 
 /**
  *  Example
  emojisModule({
   size: 24,
   destination: 'test',
-  fromCache: true
+  fromCache: true,
+  prefix: 'idz-emoji-'
 });
  */

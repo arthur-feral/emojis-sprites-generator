@@ -1,6 +1,6 @@
 @emojiCharSize: <%emojiSize%>px;
 
-[class^="idz-emoji-"], [class*=" idz-emoji-"] {
+[class^="<%prefix%>-"], [class*=" <%prefix%>-"] {
     background: transparent url("<%pathToSprite%>") 0 0 no-repeat;
     display: inline-block;
     height: @emojiCharSize;
