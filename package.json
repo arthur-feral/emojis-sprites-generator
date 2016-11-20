@@ -1,16 +1,17 @@
 {
-  "name": "emojis-sprite-generator",
+  "name": "emojis-trainer",
   "version": "0.1.0",
-  "description": "Build an emojis sprite and stylesheet file from emojis datas collected from unicode.org website",
+  "description": "Build an emojis sprite and stylesheet file from emojis datas collected from both emojipedia.org and unicode.org website",
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-register -r tests/bootstrap.js $(find ./ -name '*.test.js')"
   },
   "keywords": [
+    "emoji",
     "emojis",
     "generator",
-    "emoji",
-    "sprite"
+    "sprite",
+    "sprites"
   ],
   "author": "Arthur Féral <arthur.feral@hotmail.fr>",
   "license": "ISC",

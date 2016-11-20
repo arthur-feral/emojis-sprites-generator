@@ -1,4 +1,5 @@
-# Emojis Sprite Generator
+# Emojis Trainer
+Finally tame the emojis !
 I wonder this module will make you save time. It's a NodeJS application wich generate emojis sprite for many themes:
 `
 'apple', 'emoji-one', 'emojidex', 'emojipedia', 'facebook', 'google', 'htc', 'lg', 'microsoft', 'mozilla', 'samsung', 'twitter', 'whatsapp'
