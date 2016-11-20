@@ -32,7 +32,7 @@ const emojisModule = (config) => {
 emojisModule({
   size: 24,
   destination: 'test',
-  fromCache: true
+  fromCache: false
 });
 
 module.exports = emojisModule;
