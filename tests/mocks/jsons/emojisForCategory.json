@@ -1,0 +1,30 @@
+{
+  "people": {
+    "name": "people",
+    "url": "/people/",
+    "fullName": "Smileys & People",
+    "emojis": [
+      {
+        "url": "/grinning-face/",
+        "shortname": "grinning-face",
+        "char": "😀",
+        "category": "people",
+        "fullName": "Grinning Face"
+      },
+      {
+        "url": "/winking-face/",
+        "shortname": "winking-face",
+        "char": "😉",
+        "category": "people",
+        "fullName": "Winking Face"
+      },
+      {
+        "url": "/father-christmas/",
+        "shortname": "father-christmas",
+        "char": "🎅",
+        "category": "people",
+        "fullName": "Father Christmas"
+      }
+    ]
+  }
+}

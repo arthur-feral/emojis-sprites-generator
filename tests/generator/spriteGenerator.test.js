@@ -1,53 +1,43 @@
 'use strict';
 
-const fs = require('fs');
 const generator = require('../../lib').generator;
+const scrapper = require('../../lib').scrapper;
 const sizeOf = require('image-size');
 const imagesPath = [__dirname, 'images'].join('/');
 const destinationPath = __dirname;
 const emojis = require('./lessGenerator/datas/emojis.json');
-
-const spritePath = [destinationPath, 'emojis.png'].join('/');
-const lessPath = [destinationPath, 'emojis.less'].join('/');
-
-let config = {};
+const fse = require('fs-extra')
+const finalFolder = [destinationPath, 'apple'].join('/');
+const spritePath = [destinationPath, 'apple/apple.png'].join('/');
+const lessPath = [destinationPath, 'apple/apple.less'].join('/');
+const datasPath = [destinationPath, 'apple/apple.json'].join('/');
+const grinningFaceTempImagePath = '/tmp/cache/images/apple/people/grinning-face_raw.png';
+const winkingFaceTempImagePath = '/tmp/cache/images/apple/people/winking-face_raw.png';
 
 describe('generator', () => {
-  describe('bad config', () => {
-    it('throw A valid path for emojis images is required', (done) => {
-      expect(() => {
-        generator(config);
-      }).to.throw(/A valid path for emojis images is required/);
-      done();
-    });
+  before(() => {
+    fse.copySync([imagesPath, 'grinning-face_raw.png'].join('/'), grinningFaceTempImagePath);
+    fse.copySync([imagesPath, 'winking-face_raw.png'].join('/'), winkingFaceTempImagePath);
+  });
 
-    it('throw The emojis list is required', (done) => {
-      config = {
-        imagesPath: imagesPath
-      };
-      expect(() => {
-        generator(config);
-      }).to.throw(/The emojis list is required/);
-      done();
-    });
+  after(() => {
+    fse.unlinkSync(grinningFaceTempImagePath);
+    fse.unlinkSync(winkingFaceTempImagePath);
   });
 
   describe('Good config', () => {
     before(() => {
-      config.emojis = emojis;
-      config.destinationPath = destinationPath;
     });
 
     after(() => {
-      fs.unlinkSync(spritePath);
-      fs.unlinkSync(lessPath);
+      fse.unlinkSync(finalFolder);
     });
 
     it('gererate sprite image', (done) => {
       let image = null;
-      generator(config).then(() => {
+      generator.generateSprite('apple', emojis, 24, destinationPath).then(() => {
         expect(() => {
-          image = fs.readFileSync(spritePath);
+          image = fse.readFileSync(spritePath);
         }).to.not.throw(Error);
         let imageSize = sizeOf(image);
         expect(imageSize.width).to.equal(48);
@@ -59,7 +49,7 @@ describe('generator', () => {
     it('generate less file', (done) => {
       let less = '';
       expect(() => {
-        less = fs.readFileSync(lessPath, 'utf8');
+        less = fse.readFileSync(lessPath, 'utf8');
       }).to.not.throw(Error);
 
       expect(less.indexOf(`@emojiCharSize: 24px;`)).to.not.equal(-1);
@@ -68,7 +58,7 @@ describe('generator', () => {
       expect(less.indexOf(`.idz-emoji-grinning-face {`)).to.not.equal(-1);
       expect(less.indexOf(`background-position: 0 0;`)).to.not.equal(-1);
       expect(less.indexOf(`.idz-emoji-winking-face {`)).to.not.equal(-1);
-      expect(less.indexOf(`background-position: 24px 0;`)).to.not.equal(-1);
+      expect(less.indexOf(`background-position: -24px 0;`)).to.not.equal(-1);
 
       done();
     });

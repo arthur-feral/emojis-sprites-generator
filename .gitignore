@@ -1,7 +1,6 @@
 .idea/*
 
 node_modules/*
-emojis.json
 test/*
 .DS_Store
 npm-debug.log
