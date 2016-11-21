@@ -1,8 +1,10 @@
 'use strict';
 
-const superagentMock = require('superagent-mock')(superagent, config, logger);
 const fs = require('fs');
-const scrapper = require('../../lib/scrapper');
+const superagentMock = require('superagent-mock')(superagent, superagentConfig, ()=> {
+});
+const crawler = require('../..lib/crawler')();
+const scrapper = require('../../lib/scrapper')(superagentMock, crawler);
 
 describe('scrapper', () => {
   after(() => {

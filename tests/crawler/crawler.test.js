@@ -12,6 +12,7 @@ const emojipediaEmojiSimple = fs.readFileSync([__dirname, '../mocks/html/emojipe
 
 const emojisForCategory = require('../mocks/jsons/emojisForCategory.json');
 const emojiSimple = require('../mocks/jsons/emojiSimple.json');
+const emojiWithModifiers = require('../mocks/jsons/emojiWithModifiers.json');
 
 describe('crawler', () => {
   describe('#crawlIndexPage', () => {
@@ -40,16 +41,32 @@ describe('crawler', () => {
   });
 
   describe('#crawlEmojiPage', () => {
-    it('adds emojis list to a category', () => {
-      const categories = crawler.crawlEmojiPage({
-        "url": "/grinning-face/",
-        "shortname": "grinning-face",
-        "char": "😀",
-        "category": "people",
-        "fullName": "Grinning Face"
-      }, 0, emojipediaEmojiSimple, false);
+    describe('emoji dont have modifiers', () => {
+      it('adds emojis list to a category', () => {
+        const categories = crawler.crawlEmojiPage({
+          "url": "/grinning-face/",
+          "shortname": "grinning-face",
+          "char": "😀",
+          "category": "people",
+          "fullName": "Grinning Face"
+        }, 0, emojipediaEmojiSimple, false);
 
-      expect(categories).to.deep.equal(emojiSimple);
+        expect(categories).to.deep.equal(emojiSimple);
+      });
+    });
+
+    describe('emoji have modifiers', () => {
+      it('adds emojis list to a category with modifiers list', () => {
+        const categories = crawler.crawlEmojiPage({
+          "url": "father-christmas",
+          "shortname": "father-christmas",
+          "char": "🎅",
+          "category": "people",
+          "fullName": "Father Christmas",
+        }, 0, emojipediaEmojiWithModifier, false);
+
+        expect(categories).to.deep.equal(emojiWithModifiers);
+      });
     });
   });
 });

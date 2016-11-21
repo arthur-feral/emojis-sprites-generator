@@ -1,0 +1,112 @@
+{
+  "shortname": "father-christmas",
+  "char": "🎅",
+  "category": "people",
+  "fullName": "Father Christmas",
+  "index": 107,
+  "themes": {
+    "apple": "http://emojipedia-us.s3.amazonaws.com/cache/d4/cb/d4cbe73fc2b24857dce3a0c28d3a77c1.png",
+    "google": "http://emojipedia-us.s3.amazonaws.com/cache/6d/22/6d226cea0d88106b5539fc4bfe311deb.png",
+    "microsoft": "http://emojipedia-us.s3.amazonaws.com/cache/30/c6/30c6758f58ebb9849a34521af87e389d.png",
+    "samsung": "http://emojipedia-us.s3.amazonaws.com/cache/9e/ac/9eaced05e4a57b73ba41323efe917f77.png",
+    "lg": "http://emojipedia-us.s3.amazonaws.com/cache/9c/21/9c21be31c987bcb015df5be150ec5442.png",
+    "htc": "http://emojipedia-us.s3.amazonaws.com/cache/95/f3/95f359b4976239e7531cdc98e0fb03f3.png",
+    "facebook": "http://emojipedia-us.s3.amazonaws.com/cache/b5/a1/b5a16ac552b2d93a628ce516c4b14c30.png",
+    "twitter": "http://emojipedia-us.s3.amazonaws.com/cache/65/cc/65ccfd36cbf978404f80f771f52f3e6f.png",
+    "mozilla": "http://emojipedia-us.s3.amazonaws.com/cache/7b/b7/7bb7bf77c6d9e87ea22042c76d77ff02.png",
+    "emoji-one": "http://emojipedia-us.s3.amazonaws.com/cache/36/cd/36cd219977b7f95377c4a24a07c2a646.png",
+    "emojidex": "http://emojipedia-us.s3.amazonaws.com/cache/a7/51/a75199760809faa98e68afaed0fff589.png"
+  },
+  "modifiers": [
+    {
+      "themes": {
+        "apple": "http://emojipedia-us.s3.amazonaws.com/cache/ce/56/ce565a08a7daee3c625b200f7d8d1578.png",
+        "google": "http://emojipedia-us.s3.amazonaws.com/cache/6b/2b/6b2bd41265e4338e043ef95b1b0dfc11.png",
+        "microsoft": "http://emojipedia-us.s3.amazonaws.com/cache/8c/ed/8cedfb0b31cfa82d913f1799bb9905ee.png",
+        "samsung": "http://emojipedia-us.s3.amazonaws.com/cache/29/8a/298a39ac4ccb9e9974b487a2b981fb41.png",
+        "lg": "http://emojipedia-us.s3.amazonaws.com/cache/10/eb/10eb65654471f73d0ff3c27113fdf162.png",
+        "facebook": "http://emojipedia-us.s3.amazonaws.com/cache/ee/62/ee620c708ac74a1d0f9681d50cf20ac6.png",
+        "twitter": "http://emojipedia-us.s3.amazonaws.com/cache/d4/cf/d4cf53b428c81487d487cb91865e52a0.png",
+        "emoji-one": "http://emojipedia-us.s3.amazonaws.com/cache/90/d3/90d3b37d61acd906dadd03df0adfbdf3.png",
+        "emojidex": "http://emojipedia-us.s3.amazonaws.com/cache/bd/2e/bd2e7e597f56c9f0f510808143641c89.png"
+      },
+      "shortname": "father-christmas-type-1-2",
+      "char": "🎅🏻",
+      "category": "people",
+      "fullName": "Father Christmas, Type-1-2",
+      "index": 107
+    },
+    {
+      "themes": {
+        "apple": "http://emojipedia-us.s3.amazonaws.com/cache/f4/66/f4661c7ca9e38c89536139ce68769766.png",
+        "google": "http://emojipedia-us.s3.amazonaws.com/cache/57/8d/578d4ad4434ba14bf03097d634d57959.png",
+        "microsoft": "http://emojipedia-us.s3.amazonaws.com/cache/03/e7/03e73e62fe0ec1e8e63826af48fe3230.png",
+        "samsung": "http://emojipedia-us.s3.amazonaws.com/cache/73/b7/73b793f2a8770f0b86b1dc2b65f99ec1.png",
+        "lg": "http://emojipedia-us.s3.amazonaws.com/cache/cd/3b/cd3b82d1d2c6c313bc8bd7bdc7570c02.png",
+        "facebook": "http://emojipedia-us.s3.amazonaws.com/cache/46/e4/46e48ec4bd500c153e3cf43caf7bb6b8.png",
+        "twitter": "http://emojipedia-us.s3.amazonaws.com/cache/ff/6a/ff6a8e9b24960c0879cc755849c6901f.png",
+        "emoji-one": "http://emojipedia-us.s3.amazonaws.com/cache/7c/53/7c53f099780ea60d0e8c9cf603fb58d0.png",
+        "emojidex": "http://emojipedia-us.s3.amazonaws.com/cache/f1/24/f124233cb4a7da52facf2055f998de8e.png"
+      },
+      "shortname": "father-christmas-type-3",
+      "char": "🎅🏼",
+      "category": "people",
+      "fullName": "Father Christmas, Type-3",
+      "index": 107
+    },
+    {
+      "themes": {
+        "apple": "http://emojipedia-us.s3.amazonaws.com/cache/55/c2/55c25fc62ae38076698d1e0f0cc82eca.png",
+        "google": "http://emojipedia-us.s3.amazonaws.com/cache/da/e0/dae05812fbd2f1acd3071417ef7d276a.png",
+        "microsoft": "http://emojipedia-us.s3.amazonaws.com/cache/4a/91/4a915ed2d87d70bf670bf0bbe7bdb265.png",
+        "samsung": "http://emojipedia-us.s3.amazonaws.com/cache/9c/9e/9c9e8081e19d18e5471fd40983279364.png",
+        "lg": "http://emojipedia-us.s3.amazonaws.com/cache/be/f0/bef0c12331639fb7ba4498e279811cd7.png",
+        "facebook": "http://emojipedia-us.s3.amazonaws.com/cache/32/1a/321a6b882be88b5a8e4bc3cae167c624.png",
+        "twitter": "http://emojipedia-us.s3.amazonaws.com/cache/b1/9b/b19bf9e070b83d9c9efd2d3b35c9a4d4.png",
+        "emoji-one": "http://emojipedia-us.s3.amazonaws.com/cache/a9/2b/a92bb387ff43f4e109cb09795f430bcc.png",
+        "emojidex": "http://emojipedia-us.s3.amazonaws.com/cache/35/15/3515eb46ffc22a61762450c927041a9f.png"
+      },
+      "shortname": "father-christmas-type-4",
+      "char": "🎅🏽",
+      "category": "people",
+      "fullName": "Father Christmas, Type-4",
+      "index": 107
+    },
+    {
+      "themes": {
+        "apple": "http://emojipedia-us.s3.amazonaws.com/cache/bc/0d/bc0da880318409ab18aaccb408867113.png",
+        "google": "http://emojipedia-us.s3.amazonaws.com/cache/fe/7c/fe7ca3349da9450d180edb717c82f9e8.png",
+        "microsoft": "http://emojipedia-us.s3.amazonaws.com/cache/68/d0/68d0d2d60da18de09796f555e2dcf626.png",
+        "samsung": "http://emojipedia-us.s3.amazonaws.com/cache/7e/ef/7eef7f54d4225212a527745632f24098.png",
+        "lg": "http://emojipedia-us.s3.amazonaws.com/cache/11/43/11431c04a89604518e21947716b4ecef.png",
+        "facebook": "http://emojipedia-us.s3.amazonaws.com/cache/ec/0e/ec0e0bcf0d371b4fc039e42e925742e6.png",
+        "twitter": "http://emojipedia-us.s3.amazonaws.com/cache/12/33/1233d9c0892d885f4b60921d3d791ff4.png",
+        "emoji-one": "http://emojipedia-us.s3.amazonaws.com/cache/c2/c4/c2c450685e5aca661b23c380034bef83.png",
+        "emojidex": "http://emojipedia-us.s3.amazonaws.com/cache/3f/f4/3ff467e2ee8092808031b0b9deadeca9.png"
+      },
+      "shortname": "father-christmas-type-5",
+      "char": "🎅🏾",
+      "category": "people",
+      "fullName": "Father Christmas, Type-5",
+      "index": 107
+    },
+    {
+      "themes": {
+        "apple": "http://emojipedia-us.s3.amazonaws.com/cache/c9/35/c9352d10f71c8989b787aa0457bf6e48.png",
+        "google": "http://emojipedia-us.s3.amazonaws.com/cache/65/77/6577f4a9aa7c61eb6c31113824754df5.png",
+        "microsoft": "http://emojipedia-us.s3.amazonaws.com/cache/ea/ee/eaee85649bd8470d5e32f493482ec894.png",
+        "samsung": "http://emojipedia-us.s3.amazonaws.com/cache/a7/51/a7517db445e2109a47d4d7474ecfda85.png",
+        "lg": "http://emojipedia-us.s3.amazonaws.com/cache/30/55/30558cbd1d1e41b8e9913a1246f21e4e.png",
+        "facebook": "http://emojipedia-us.s3.amazonaws.com/cache/da/89/da89831d5051689176cd1ff243135bd3.png",
+        "twitter": "http://emojipedia-us.s3.amazonaws.com/cache/90/e5/90e54983d2953e8480bd1d8805b6d3c5.png",
+        "emoji-one": "http://emojipedia-us.s3.amazonaws.com/cache/d6/df/d6df08b59b46c4ead8bae0be0732b6f5.png",
+        "emojidex": "http://emojipedia-us.s3.amazonaws.com/cache/ca/f0/caf0d1c3972a8302ab7003beb74359f1.png"
+      },
+      "shortname": "father-christmas-type-6",
+      "char": "🎅🏿",
+      "category": "people",
+      "fullName": "Father Christmas, Type-6",
+      "index": 107
+    }
+  ]
+}
