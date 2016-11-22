@@ -9,13 +9,16 @@ const crawler = require('../../lib/crawler')(logger);
 const scrapper = require('../../lib/scrapper')(superagent, crawler, logger);
 const emojisForCategory = require('../mocks/jsons/emojisForCategory.json');
 const emojipediaComplete = require('../mocks/jsons/emojipediaComplete.json');
+const imageUrl = 'http://emojipedia-us.s3.amazonaws.com/cache/d4/cb/d4cbe73fc2b24857dce3a0c28d3a77c1.png';
+const cacheImagesPath = [process.cwd(), 'cache/images'].join('/');
+const allThemes = ['apple', 'emoji-one', 'emojidex', 'emojipedia', 'facebook', 'google', 'htc', 'lg', 'microsoft', 'mozilla', 'samsung', 'twitter', 'whatsapp'];
 
 describe('scrapper', () => {
   after(() => {
     superagentMock.unset();
   });
 
-  describe('#scrapIndex', () => {
+  /*describe('#scrapIndex', () => {
     describe('without cache', () => {
       it('fetch html from index page', (done) => {
         scrapper.scrapIndex(false).then((datas) => {
@@ -119,6 +122,24 @@ describe('scrapper', () => {
 
     describe('with cache', () => {
 
+    });
+  });
+
+  describe('#scrapImage', () => {
+    it('retrive image from web', (done) => {
+      scrapper.scrapImage(false, imageUrl, 'apple', 'people', 'grinning-face').then((path) => {
+        expect(path).to.equal(`${cacheImagesPath}/apple/people/grinning-face_raw.png`);
+        done();
+      }).catch(done);
+    });
+  });
+*/
+  describe('#scrapImages', () => {
+    it('retrive all images from web', (done) => {
+      scrapper.scrapImages(false, emojipediaComplete).then((themes) => {
+        expect(themes).to.deep.equal(allThemes);
+        done();
+      }).catch(done);
     });
   });
 });

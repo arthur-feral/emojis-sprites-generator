@@ -80,5 +80,17 @@ module.exports = [
         text: data
       };
     }
+  },
+  {
+    pattern: 'http://emojipedia-us.s3.amazonaws.com/[a-zA-Z0-9\/-]+.png',
+    fixtures: function(match) {
+      return fs.readFileSync([__dirname, '../generator/imageGenerator/images/grinning-face_raw.png'].join('/'));
+    },
+
+    get: function(match, data) {
+      return {
+        body: data
+      };
+    }
   }
 ];

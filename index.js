@@ -1,10 +1,10 @@
 'use strict';
 
 const superagent = require('superagent');
+const when = require('when');
 const lib = require('./lib')(superagent);
 const generator = lib.generator;
 const scrapper = lib.scrapper;
-const crawler = lib.crawler;
 const logger = lib.logger;
 
 /**
@@ -14,7 +14,7 @@ const logger = lib.logger;
 const DEFAULT_CONFIG = {
   destination: [process.cwd(), 'emojis-generator'].join('/'),
   size: 24,
-  fromCache: false,
+  fromCache: true,
   prefix: 'emojis'
 };
 
@@ -50,10 +50,19 @@ const getConfig = (commander) => {
  * @param config
  */
 const emojisModule = (config) => {
-  logger.info('Starting scrapper...');
+  logger.success('Starting...');
   scrapper.scrap(config)
     .then((datas) => {
-      console.log(datas);
+      logger.success('Successfully retrived datas.');
+      logger.info('Getting images...');
+      return when.all([
+        datas,
+        scrapper.scrapImages(config, datas)
+      ]);
+    })
+    .then((datas, themes) => {
+      console.log(themes);
+      //return generator.generate(config, datas);
     }).catch(logger.error);
   // scrapper.scrap(config)
   //   .then((datas) => {
