@@ -15,7 +15,7 @@
     "url": "git+ssh://git@github.com/arthur-feral/emojis-sprites-generator.git"
   },
   "engines": {
-    "node": "5.7.*"
+    "node": "7.1.0"
   },
   "bugs": {
     "url": "https://github.com/arthur-feral/emojis-sprites-generator/issues"
