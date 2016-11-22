@@ -2,7 +2,6 @@
 
 const fs = require('fs');
 const lessGenerator = require('../../../lib/generator/lessGenerator');
-const emojis = require('./datas/emojis.json');
 const spritePath = [__dirname, 'emojis.png'].join('/');
 
 describe('lessGenerator', () => {

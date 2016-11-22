@@ -5,10 +5,10 @@ const fs = require('fs');
 const logger = require('../../lib/logger');
 const crawler = require('../../lib/crawler')(logger);
 
-const emojipediaMainPage = fs.readFileSync([__dirname, '../mocks/html/emojipediaMainPage.html'].join('/'), 'utf8');
+const emojipediaMainPage = fs.readFileSync([__dirname, '../mocks/html/index.html'].join('/'), 'utf8');
 const people = fs.readFileSync([__dirname, '../mocks/html/people.html'].join('/'), 'utf8');
 const fatherChristmas = fs.readFileSync([__dirname, '../mocks/html/father-christmas.html'].join('/'), 'utf8');
-const griningFace = fs.readFileSync([__dirname, '../mocks/html/grining-face.html'].join('/'), 'utf8');
+const griningFace = fs.readFileSync([__dirname, '../mocks/html/grinning-face.html'].join('/'), 'utf8');
 
 const emojisForCategory = require('../mocks/jsons/emojisForCategory.json');
 const emojiSimple = require('../mocks/jsons/emojiSimple.json');
