@@ -3,9 +3,12 @@
 const fs = require('fs');
 const superagent = require('superagent');
 const superagentConfig = require('../mocks/superagent-mock-config');
+const logger = require('../../lib/logger');
 const superagentMock = require('superagent-mock')(superagent, superagentConfig);
-const crawler = require('../../lib/crawler')();
-const scrapper = require('../../lib/scrapper')(superagent, crawler);
+const crawler = require('../../lib/crawler')(logger);
+const scrapper = require('../../lib/scrapper')(superagent, crawler, logger);
+const emojisForCategory = require('../mocks/jsons/emojisForCategory.json');
+const emojipediaComplete = require('../mocks/jsons/emojipediaComplete.json');
 
 describe('scrapper', () => {
   after(() => {
@@ -84,8 +87,31 @@ describe('scrapper', () => {
   describe('#scrapEmojis', () => {
     describe('without cache', () => {
       it('fetch html from all emojis pages', (done) => {
-        scrapper.scrapEmojiPage(false, {}).then((datas) => {
-          console.log(datas);
+        scrapper.scrapEmojis(false, emojisForCategory).then((datas) => {
+          expect(datas).to.deep.equal(emojipediaComplete);
+          done();
+        }).catch(done);
+      });
+    });
+
+    describe('with cache', () => {
+
+    });
+  });
+
+  describe('#scrap', () => {
+    describe('without cache', () => {
+      let destPath = __dirname;
+      after(()=> {
+        fs.unlinkSync([destPath, 'emojis.json'].join('/'));
+      });
+
+      it('Build emojis datas json file', (done) => {
+        scrapper.scrap({
+          fromCache: false,
+          destination: destPath
+        }).then((datas) => {
+          expect(datas).to.deep.equal(emojipediaComplete);
           done();
         }).catch(done);
       });

@@ -2,13 +2,13 @@
 
 const fs = require('fs');
 
-const crawler = require('../../lib/crawler')();
+const logger = require('../../lib/logger');
+const crawler = require('../../lib/crawler')(logger);
 
 const emojipediaMainPage = fs.readFileSync([__dirname, '../mocks/html/emojipediaMainPage.html'].join('/'), 'utf8');
-const emojipediaCategoryPeople = fs.readFileSync([__dirname, '../mocks/html/emojipediaCategoryPeople.html'].join('/'), 'utf8');
-const emojipediaEmojiWithModifier = fs.readFileSync([__dirname, '../mocks/html/emojipediaEmojiWithModifier.html'].join('/'), 'utf8');
-const emojipediaEmojiMultiple = fs.readFileSync([__dirname, '../mocks/html/emojipediaEmojiMultiple.html'].join('/'), 'utf8');
-const emojipediaEmojiSimple = fs.readFileSync([__dirname, '../mocks/html/emojipediaEmojiSimple.html'].join('/'), 'utf8');
+const people = fs.readFileSync([__dirname, '../mocks/html/people.html'].join('/'), 'utf8');
+const fatherChristmas = fs.readFileSync([__dirname, '../mocks/html/father-christmas.html'].join('/'), 'utf8');
+const griningFace = fs.readFileSync([__dirname, '../mocks/html/grining-face.html'].join('/'), 'utf8');
 
 const emojisForCategory = require('../mocks/jsons/emojisForCategory.json');
 const emojiSimple = require('../mocks/jsons/emojiSimple.json');
@@ -34,7 +34,7 @@ describe('crawler', () => {
         name: 'people',
         url: '/people/',
         fullName: 'Smileys & People'
-      }, emojipediaCategoryPeople);
+      }, people);
 
       expect(categories).to.deep.equal(emojisForCategory);
     });
@@ -49,7 +49,7 @@ describe('crawler', () => {
           "char": "😀",
           "category": "people",
           "fullName": "Grinning Face"
-        }, 0, emojipediaEmojiSimple, false);
+        }, 0, griningFace, false);
 
         expect(categories).to.deep.equal(emojiSimple);
       });
@@ -63,7 +63,7 @@ describe('crawler', () => {
           "char": "🎅",
           "category": "people",
           "fullName": "Father Christmas",
-        }, 0, emojipediaEmojiWithModifier, false);
+        }, 0, fatherChristmas, false);
 
         expect(categories).to.deep.equal(emojiWithModifiers);
       });
