@@ -79,8 +79,8 @@ describe('imageGenerator', () => {
   describe('#generateSprite', () => {
     it('generate a sprite', (done) => {
       imageGenerator.generateSprite('apple', emojisList, spriteDestination).then((spriteDimension) => {
-        console.log(spriteDimension);
-
+        expect(spriteDimension.height).to.equal(25);
+        expect(spriteDimension.width).to.equal((24 * emojisShortnames.length) + emojisShortnames.length);
         done();
       }).catch(done);
     });
