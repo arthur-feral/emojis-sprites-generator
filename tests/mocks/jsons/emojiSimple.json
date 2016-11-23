@@ -1,0 +1,20 @@
+{
+  "shortname": "grinning-face",
+  "char": "😀",
+  "category": "people",
+  "fullName": "Grinning Face",
+  "index": 0,
+  "themes": {
+    "apple": "http://emojipedia-us.s3.amazonaws.com/cache/0f/71/0f716ab7dd220b19cbfd5f5890ebe8cb.png",
+    "google": "http://emojipedia-us.s3.amazonaws.com/cache/a7/0e/a70ed4d5e4062aab6c4ac24892ee6763.png",
+    "microsoft": "http://emojipedia-us.s3.amazonaws.com/cache/ea/6b/ea6b8e79764fb12be48eda52f5f0b567.png",
+    "samsung": "http://emojipedia-us.s3.amazonaws.com/cache/72/b0/72b09c07bfe12e9eee550ab1d9615b21.png",
+    "lg": "http://emojipedia-us.s3.amazonaws.com/cache/9a/8a/9a8a265da5a7d453c588f00727bea98a.png",
+    "htc": "http://emojipedia-us.s3.amazonaws.com/cache/94/02/9402492bc26cd26d079e9539320ded88.png",
+    "facebook": "http://emojipedia-us.s3.amazonaws.com/cache/84/f2/84f291b79b86acf013c45154ffbe173c.png",
+    "twitter": "http://emojipedia-us.s3.amazonaws.com/cache/67/d6/67d6e5ff5c7b7d4dfb33a012121aae20.png",
+    "mozilla": "http://emojipedia-us.s3.amazonaws.com/cache/2d/87/2d877671de1d5a2f2434f2d1687a401a.png",
+    "emoji-one": "http://emojipedia-us.s3.amazonaws.com/cache/57/86/57869594de142109bb973689f0023b7d.png",
+    "emojidex": "http://emojipedia-us.s3.amazonaws.com/cache/97/2b/972b0b6af61ec2d2316eaeec49641beb.png"
+  }
+}

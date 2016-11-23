@@ -1,16 +1,29 @@
 'use strict';
 
-const generator = require('./lib').generator;
-const scrapper = require('./lib').scrapper;
+const superagent = require('superagent');
 const when = require('when');
-const _ = require('lodash');
+const lib = require('./lib')(superagent);
+const generator = lib.generator;
+const scrapper = lib.scrapper;
+const logger = lib.logger;
+const utils = lib.utils;
+
+/**
+ * default config provided to module
+ * @type {{destination: string, size: number, fromCache: boolean, prefix: string}}
+ */
 const DEFAULT_CONFIG = {
   destination: [process.cwd(), 'emojis-generator'].join('/'),
   size: 24,
-  fromCache: false,
+  fromCache: true,
   prefix: 'emojis'
 };
 
+/**
+ * parse cli args and build config to provide to the module
+ * @param commander
+ * @returns {{destination: string, size: number, fromCache: boolean, prefix: string}}
+ */
 const getConfig = (commander) => {
   let config = DEFAULT_CONFIG;
 
@@ -33,29 +46,44 @@ const getConfig = (commander) => {
   return config;
 };
 
+/**
+ * core module entry point
+ * @param config
+ */
 const emojisModule = (config) => {
-  console.log('Starting scrapper...');
+  logger.success('Starting...');
   scrapper.scrap(config)
     .then((datas) => {
+      logger.success('Successfully retrived datas.');
+      logger.info('Getting images...');
       return when.all([
-        datas, scrapper.scrapImages(config, datas)
-      ]).spread(function(d, t) {
-        return [d, t];
-      });
+        datas,
+        scrapper.scrapImages(config, datas)
+      ]);
     })
     .then((datas) => {
-      console.log('Generating sprites...');
-      return when.all(_.map(datas[1], (theme) => {
-        let themeDatas = _.merge({}, datas[0]);
-        _.each(datas[0], (category => {
-          themeDatas[category.name].emojis = _.sortBy(_.filter(category.emojis, (emoji) => _.has(emoji.themes, theme)), 'index');
-        }));
+      logger.info('Processing images...');
 
-        return generator.generateSprite(theme, themeDatas, config.size, config.destination);
-      }));
-    });
+      return when.all([
+        datas[0],
+        datas[1][0],
+        generator.generateImages(config.size, datas[1][1])
+      ]);
+    })
+    .then((datas) => {
+      logger.info('Generating themes...');
+      return generator.generateThemes(config, datas[0], datas[1]);
+    })
+    .finally(() => {
+      logger.success('Done.');
+    })
+    .catch(logger.error);
 };
 
+/**
+ * Entry point
+ * @param commander
+ */
 const run = (commander) => {
   let config = getConfig(commander);
 
@@ -66,12 +94,4 @@ module.exports = {
   run
 };
 
-/**
- *  Example
- emojisModule({
-  size: 24,
-  destination: 'test',
-  fromCache: true,
-  prefix: 'idz-emoji-'
-});
- */
+emojisModule(DEFAULT_CONFIG);
