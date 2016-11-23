@@ -6,7 +6,6 @@ const lib = require('./lib')(superagent);
 const generator = lib.generator;
 const scrapper = lib.scrapper;
 const logger = lib.logger;
-const utils = lib.utils;
 
 /**
  * default config provided to module
@@ -55,7 +54,7 @@ const emojisModule = (config) => {
   scrapper.scrap(config)
     .then((datas) => {
       logger.success('Successfully retrived datas.');
-      logger.info('Getting images...');
+      logger.info('Collecting images...');
       return when.all([
         datas,
         scrapper.scrapImages(config, datas)
