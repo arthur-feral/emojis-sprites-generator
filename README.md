@@ -57,11 +57,14 @@ It generate a json file containing all emoji's datas
         "char": "😁",
         "category": "people",
         "fullName": "Grinning Face With Smiling Eyes",
-        "index": 1
+        "index": 1,
+        "modifiers": {
+            // emojis list
+        }
       },
 ```
 
-of course you will find the modifiers version of emojis (black skin etc...). The modifiers versions of an emoji will have the same `index` key than the original.
+of course you will find the modifiers version of emojis (black skin etc...). They are stored into the original emoji `modifiers` key if any. The modifiers versions of an emoji will have the same `index` key than the original.
 - 🖕 Reversed Hand With Middle Finger Extended
 - 🖕🏼 Reversed Hand With Middle Finger Extended, Type-3
 - 🖕🏽 Reversed Hand With Middle Finger Extended, Type-4
