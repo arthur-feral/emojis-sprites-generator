@@ -11,7 +11,7 @@ I wonder this module will make you save time. It's a NodeJS application wich gen
 `
 
 Once the program finished the job, you will be able to get the files.
-It stores raw images into your machine's temp folder (default: `/tmp/cache/images`) ordered by theme `/tmp/cache/images/apple/` and by categories `/tmp/cache/images/apple/people/`. All images have teh emoji's shortname as file name `/tmp/cache/images/apple/people/grinning-face.png`, so you can use them into your mobile app for example. The size of images depend on the size you provide to the program.
+It stores raw images into a cache folder on the current working directory ordered by theme `cache/images/apple/` and by categories `cache/images/apple/people/`. All images have teh emoji's shortname as file name `cache/images/apple/people/grinning-face.png`, so you can use them into your mobile app for example. The size of images depend on the size you provide to the program.
 
 It generates the sprite file with all emojis in the destination path you provide.
 
@@ -58,9 +58,9 @@ It generate a json file containing all emoji's datas
         "category": "people",
         "fullName": "Grinning Face With Smiling Eyes",
         "index": 1,
-        "modifiers": {
-            // emojis list
-        }
+        "modifiers": [ 
+            "others emojis here"
+        ]
       },
 ```
 
@@ -96,10 +96,10 @@ $ emojis-trainer
 
 **cache**
 
-```--cache``` Force using cache. In fact the program will get about 16k images and at least 1,7k html pages, so it caches datas on the first use and if you launch it again, it could use datas on the ``cache` folder. Don't use it if you want freash new datas from the websites. (DEFAULT: false)
+```--cache``` Force using cache. In fact the program will get about 16k images and at least 1,7k html pages, so it caches datas on the first use and if you launch it again, it could use datas on the ``cache` folder. Don't use it if you want freash new datas from the websites. (DEFAULT: true)
 
 # Notes
-This is an early version. I know it needs some fixes and optimization but it works.
+This is an early version. I know it needs some fixes and optimization but it works. 
 
 ```javascript
 return 'enjoy';
