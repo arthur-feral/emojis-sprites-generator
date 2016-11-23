@@ -11,14 +11,14 @@ const emojisForCategory = require('../mocks/jsons/emojisForCategory.json');
 const emojipediaComplete = require('../mocks/jsons/emojipediaComplete.json');
 const imageUrl = 'http://emojipedia-us.s3.amazonaws.com/cache/d4/cb/d4cbe73fc2b24857dce3a0c28d3a77c1.png';
 const cacheImagesPath = [process.cwd(), 'cache/images'].join('/');
-const allThemes = ['apple', 'emoji-one', 'emojidex', 'emojipedia', 'facebook', 'google', 'htc', 'lg', 'microsoft', 'mozilla', 'samsung', 'twitter', 'whatsapp'];
+const allThemes = ['apple', 'google', 'microsoft', 'samsung', 'lg', 'htc', 'facebook', 'twitter', 'mozilla', 'emoji-one', 'emojidex'];
 
 describe('scrapper', () => {
   after(() => {
     superagentMock.unset();
   });
 
-  /*describe('#scrapIndex', () => {
+  describe('#scrapIndex', () => {
     describe('without cache', () => {
       it('fetch html from index page', (done) => {
         scrapper.scrapIndex(false).then((datas) => {
@@ -133,7 +133,7 @@ describe('scrapper', () => {
       }).catch(done);
     });
   });
-*/
+
   describe('#scrapImages', () => {
     it('retrive all images from web', (done) => {
       scrapper.scrapImages(false, emojipediaComplete).then((themes) => {

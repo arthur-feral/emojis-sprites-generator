@@ -1,8 +1,11 @@
 'use strict';
 
 const fs = require('fs');
+const when = require('when');
 const lessGenerator = require('../../../lib/generator/lessGenerator');
 const spritePath = [__dirname, 'emojis.png'].join('/');
+const emojisJSON = require('../../mocks/jsons/emojipediaComplete.json');
+const emojis = _.map(emojisJSON.people.emojis, (emoji) => emoji);
 
 describe('lessGenerator', () => {
   describe('#base', () => {
@@ -26,6 +29,26 @@ describe('lessGenerator', () => {
       expect(result.indexOf(`background-position: -24px 0;`)).to.not.equal(-1);
 
       done();
+    });
+  });
+
+  describe('#generate', () => {
+    after(() => {
+      fs.unlinkSync(`${__dirname}/apple/apple.less`);
+    });
+
+    it('generate less stylesheet', (done) => {
+      let lessContent;
+      lessGenerator.generate('apple', 'prefix', emojis, {width: 152, height: 24}, __dirname).then(() => {
+        expect(function() {
+          lessContent = fs.readFileSync(`${__dirname}/apple/apple.less`, 'utf8');
+        }).to.not.throw(Error);
+
+        expect(lessContent.indexOf(`.prefix-winking-face {`)).to.not.equal(-1);
+        expect(lessContent.indexOf(`background-position: -25px 0`)).to.not.equal(-1);
+
+        done();
+      }).catch(done);
     });
   });
 });

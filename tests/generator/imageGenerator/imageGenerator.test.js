@@ -80,7 +80,7 @@ describe('imageGenerator', () => {
     it('generate a sprite', (done) => {
       imageGenerator.generateSprite('apple', emojisList, spriteDestination).then((spriteDimension) => {
         expect(function() {
-          fs.accessSync(`${spriteDestination}/apple.png`, fs.F_OK);
+          fs.accessSync(`${spriteDestination}/apple/apple.png`, fs.F_OK);
         }).to.not.throw(Error);
         expect(spriteDimension.height).to.equal(25);
         expect(spriteDimension.width).to.equal((24 * emojisShortnames.length) + emojisShortnames.length);
