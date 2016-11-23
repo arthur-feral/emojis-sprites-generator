@@ -17,11 +17,8 @@ commander
 
 prompt.start();
 
-// Do we nee to force entering args ?
-// if (!commander.args.length) {
-//   commander.help();
-// } else {
-//   emojisModule.run(commander);
-// }
-
-emojisModule.run(commander);
+if (!commander.args.length) {
+  commander.help();
+} else {
+  emojisModule.run(commander);
+}

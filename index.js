@@ -6,6 +6,7 @@ const lib = require('./lib')(superagent);
 const generator = lib.generator;
 const scrapper = lib.scrapper;
 const logger = lib.logger;
+const utils = lib.utils;
 
 /**
  * default config provided to module
@@ -65,16 +66,16 @@ const emojisModule = (config) => {
 
       return when.all([
         datas[0],
+        datas[1][0],
         generator.generateImages(config.size, datas[1][1])
       ]);
     })
     .then((datas) => {
       logger.info('Generating themes...');
-      return generator.generateThemes(config, datas[0], datas[1][0]);
+      return generator.generateThemes(config, datas[0], datas[1]);
     })
-    .then((lol) => {
-      logger.success('Themes generated');
-
+    .finally(() => {
+      logger.success('Done.');
     })
     .catch(logger.error);
 };

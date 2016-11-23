@@ -48,7 +48,7 @@ describe('imageGenerator', () => {
   describe('#generateBaseImage', () => {
     it('generate an emoji from base', (done) => {
       imageGenerator.generateBaseImage(24).then((path) => {
-        let finalPath = [process.cwd(), 'cache/base.png'].join('/');
+        let finalPath = [process.cwd(), 'cache/images/base.png'].join('/');
         expect(path).to.equal(finalPath);
         expect(function() {
           fs.accessSync(finalPath, fs.F_OK);
