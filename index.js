@@ -1,5 +1,6 @@
 'use strict';
 
+const _ = require('lodash');
 const superagent = require('superagent');
 const when = require('when');
 const lib = require('./lib')(superagent);
@@ -14,7 +15,7 @@ const logger = lib.logger;
 const DEFAULT_CONFIG = {
   destination: [process.cwd(), 'emojis-generator'].join('/'),
   size: 24,
-  fromCache: true,
+  fromCache: false,
   prefix: 'emojis'
 };
 
@@ -39,7 +40,7 @@ const getConfig = (commander) => {
   }
 
   if (commander.cache) {
-    config['fromCache'] = commander.fromCache;
+    config['fromCache'] = commander.cache;
   }
 
   return config;
@@ -85,6 +86,9 @@ const emojisModule = (config) => {
  */
 const run = (commander) => {
   let config = getConfig(commander);
+  _.each(config, (conf, name) => {
+    logger.info(`${name}: ${conf}`);
+  });
 
   emojisModule(config);
 };

@@ -2,7 +2,6 @@
 'use strict';
 
 const commander = require('commander');
-const prompt = require('prompt');
 const emojisModule = require('../index.js');
 const packagejson = require('../package.json');
 
@@ -15,10 +14,4 @@ commander
   .option('-c, --cache', 'Force cache use (use last cached html and images) Dont use it if you want last released emojis')
   .parse(process.argv);
 
-prompt.start();
-
-if (!commander.args.length) {
-  commander.help();
-} else {
-  emojisModule.run(commander);
-}
+emojisModule.run(commander);

@@ -1,6 +1,6 @@
 {
   "name": "emojis-trainer",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Build an emojis sprite and stylesheet file from emojis datas collected from both emojipedia.org and unicode.org website",
   "main": "index.js",
   "scripts": {
@@ -39,7 +39,6 @@
     "gm": "^1.23.0",
     "image-size": "^0.5.0",
     "lodash": "^4.17.0",
-    "prompt": "^1.0.0",
     "superagent": "^2.3.0",
     "superagent-throttle": "^0.2.1",
     "when": "^3.7.7"
@@ -47,7 +46,6 @@
   "devDependencies": {
     "babel-register": "^6.18.0",
     "chai": "^3.5.0",
-    "fs-extra": "^1.0.0",
     "mocha": "^3.1.2",
     "mock-fs": "^3.12.1",
     "sinon": "^1.17.6",

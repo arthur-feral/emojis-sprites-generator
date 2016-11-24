@@ -58,7 +58,7 @@ It generate a json file containing all emoji's datas
         "category": "people",
         "fullName": "Grinning Face With Smiling Eyes",
         "index": 1,
-        "modifiers": [ 
+        "modifiers": [
             "others emojis here"
         ]
       },
@@ -96,10 +96,10 @@ $ emojis-trainer
 
 **cache**
 
-```--cache``` Force using cache. In fact the program will get about 16k images and at least 1,7k html pages, so it caches datas on the first use and if you launch it again, it could use datas on the ``cache` folder. Don't use it if you want freash new datas from the websites. (DEFAULT: true)
+```--cache``` Force using cache. In fact the program will get about 16k images and at least 1,7k html pages, so it caches datas on the first use and if you launch it again, it could use datas on the ``cache` folder. Don't use it if you want freash new datas from the websites. (DEFAULT: false)
 
 # Notes
-This is an early version. I know it needs some fixes and optimization but it works. 
+This is an early version. I know it needs some fixes and optimization but it works.
 
 ```javascript
 return 'enjoy';
