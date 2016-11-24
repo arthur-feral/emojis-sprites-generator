@@ -8,7 +8,7 @@
     "test": "mocha --compilers js:babel-register -r tests/bootstrap.js $(find ./ -name '*.test.js')"
   },
   "bin": {
-    "emojis-trainer": "./bin/emojis-trainer.js --harmony"
+    "emojis-trainer": "./bin/emojis-trainer.js"
   },
   "repository": {
     "type": "git",
