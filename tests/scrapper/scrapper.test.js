@@ -1,5 +1,6 @@
 'use strict';
 
+const _ = require('lodash');
 const fs = require('fs');
 const superagent = require('superagent');
 const superagentConfig = require('../mocks/superagent-mock-config');
@@ -13,7 +14,21 @@ const emojipediaComplete = require('../mocks/jsons/emojipediaComplete.json');
 const imageUrl = 'http://emojipedia-us.s3.amazonaws.com/cache/d4/cb/d4cbe73fc2b24857dce3a0c28d3a77c1.png';
 const cacheImagesPath = [process.cwd(), 'cache/images'].join('/');
 const allThemes = ['apple', 'google', 'microsoft', 'samsung', 'lg', 'htc', 'facebook', 'twitter', 'mozilla', 'emoji-one', 'emojidex'];
-
+const allUrls = [];
+_.each(emojipediaComplete, (category) => {
+  _.each(category.emojis, (emoji) => {
+    _.each(emoji.themes, (url, theme) => {
+      allUrls.push(`${cacheImagesPath}/${theme}/${category.name}/${emoji.shortname}_raw.png`);
+    });
+    if (_.has(emoji, 'modifiers')) {
+      _.each(emoji.modifiers, (modifier) => {
+        _.each(modifier.themes, (url, modifierTheme) => {
+          allUrls.push(`${cacheImagesPath}/${modifierTheme}/${category.name}/${modifier.shortname}_raw.png`);
+        });
+      });
+    }
+  });
+});
 describe('scrapper', () => {
   after(() => {
     superagentMock.unset();
@@ -137,8 +152,8 @@ describe('scrapper', () => {
 
   describe('#scrapImages', () => {
     it('retrive all images from web', (done) => {
-      scrapper.scrapImages(false, emojipediaComplete).then((themes) => {
-        expect(themes).to.deep.equal(allThemes);
+      scrapper.scrapImages(false, emojipediaComplete).then((datas) => {
+        expect(datas).to.deep.equal([allThemes, allUrls]);
         done();
       }).catch(done);
     });
