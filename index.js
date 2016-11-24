@@ -92,5 +92,3 @@ const run = (commander) => {
 module.exports = {
   run
 };
-
-emojisModule(DEFAULT_CONFIG);
