@@ -52,7 +52,11 @@ const getConfig = (commander) => {
  */
 const emojisModule = (config) => {
   logger.success('Starting...');
+
+  // First we scrap datas from website
   scrapper.scrap(config)
+
+    // the we collect images from different themes
     .then((datas) => {
       logger.success('Successfully retrived datas.');
       logger.info('Collecting images...');
@@ -61,6 +65,8 @@ const emojisModule = (config) => {
         scrapper.scrapImages(config, datas)
       ]);
     })
+
+    // then we resize images with the specified size
     .then((datas) => {
       logger.info('Processing images...');
 
@@ -70,6 +76,8 @@ const emojisModule = (config) => {
         generator.generateImages(config.size, datas[1][1])
       ]);
     })
+
+    // then we generate sprites for the differents collected themes
     .then((datas) => {
       logger.info('Generating themes...');
       return generator.generateThemes(config, datas[0], datas[1]);
