@@ -1,4 +1,4 @@
-# Emojis Sprite Generator
+# Emojis Sprite Generator ![emoji](https://github.com/arthur-feral/emojis-sprites-generator/blob/master/tests/generator/imageGenerator/images/grinning-face.png)
 
 ### Introduction
 Working in my company, I has to work on real time chat application and as a frontend engineer, they ask me to integrate an emojis popup to send emojis. The chat application works on both desktop and mobile. But emojis support is not great on all platforms and each has his own design. So to maximize the compatibility, the better way to have same emojis on all this platforms was sprites. So I've searched a place to find all emojis and their metadatas and came [Emojipedia.org](http://emojipedia.org/) and [Unicode.org](http://unicode.org/emoji/charts/full-emoji-list.html) gathering all i need for the job.
@@ -77,9 +77,14 @@ First install the package
 $ npm i -g emojis-trainer
 ```
 
+Run help command to have details
+```bash
+$ emojis-trainer -h
+```
+
 then launch it !
 ```bash
-$ emojis-trainer
+$ emojis-trainer -d path/to/the/folder -s 24 -c
 ```
 ###Options
 **destination**
@@ -100,6 +105,7 @@ $ emojis-trainer
 
 # Notes
 This is an early version. I know it needs some fixes and optimization but it works.
+Don't hesitate to help ! ❤️
 
 ```javascript
 return 'enjoy';

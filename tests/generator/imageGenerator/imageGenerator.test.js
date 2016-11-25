@@ -12,7 +12,7 @@ const grinningFaceRawPath = [__dirname, 'images/grinning-face_raw.png'].join('/'
 const grinningFacePath = [cachePath, 'images/grinning-face.png'].join('/');
 const baseImagePath = [__dirname, 'images/base.png'].join('/');
 const baseImageCachePath = [cachePath, 'base.png'].join('/');
-const spriteDestination = [cachePath, 'apple'].join('/');
+const spriteDestination = [cachePath].join('/');
 const emojisList = require('../../mocks/jsons/emojipediaComplete.json').people.emojis;
 let emojisShortnames = [];
 
@@ -39,7 +39,7 @@ describe('imageGenerator', () => {
   after(() => {
     fs.unlinkSync(baseImageCachePath);
     fs.unlinkSync(grinningFacePath);
-    // fs.unlinkSync([spriteDestination, 'apple.png'].join('/'));
+    fs.unlinkSync([spriteDestination, '/apple/apple.png'].join('/'));
     _.each(emojisShortnames, (shortname) => {
       fs.unlinkSync(`${cachePath}/images/apple/people/${shortname}.png`);
     });
@@ -55,7 +55,7 @@ describe('imageGenerator', () => {
         }).to.not.throw(Error);
 
         let dimensions = sizeOf(finalPath);
-        expect(dimensions.height).to.equal(25);
+        expect(dimensions.height).to.equal(24);
         done();
       }).catch(done);
     });
@@ -70,7 +70,7 @@ describe('imageGenerator', () => {
         }).to.not.throw(Error);
 
         let dimensions = sizeOf(grinningFacePath);
-        expect(dimensions.height).to.equal(25);
+        expect(dimensions.height).to.equal(24);
         done();
       }).catch(done);
     });
@@ -82,8 +82,8 @@ describe('imageGenerator', () => {
         expect(function() {
           fs.accessSync(`${spriteDestination}/apple/apple.png`, fs.F_OK);
         }).to.not.throw(Error);
-        expect(spriteDimension.height).to.equal(25);
-        expect(spriteDimension.width).to.equal((24 * emojisShortnames.length) + emojisShortnames.length);
+        expect(spriteDimension.height).to.equal(24);
+        expect(spriteDimension.width).to.equal((24 * emojisShortnames.length));
         done();
       }).catch(done);
     });
