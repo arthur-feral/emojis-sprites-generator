@@ -84,9 +84,13 @@ $ emojis-trainer -h
 
 then launch it !
 ```bash
-$ emojis-trainer -d path/to/the/folder -s 24 -c
+$ emojis-trainer --preproc less -d path/to/the/folder -s 24 -c
 ```
 ###Options
+**preproc**
+
+```--preproc``` the css preprocessor you want to use (REQUIRED). For now only sass and less are supported.
+
 **destination**
 
 ```--destination``` the place when files will be writen (DEFAULT: current working directory)
