@@ -11,7 +11,7 @@ const imageGenerator = require('../../../lib/generator/imageGenerator')(logger);
 const grinningFaceRawPath = [__dirname, 'images/grinning-face_raw.png'].join('/');
 const grinningFacePath = [cachePath, 'images/grinning-face.png'].join('/');
 const baseImagePath = [__dirname, 'images/base.png'].join('/');
-const baseImageCachePath = [cachePath, 'base.png'].join('/');
+const baseImageCachePath = [cachePath, '/images/base.png'].join('/');
 const spriteDestination = [cachePath].join('/');
 const emojisList = require('../../mocks/jsons/emojipediaComplete.json').people.emojis;
 let emojisShortnames = [];
@@ -31,7 +31,6 @@ describe('imageGenerator', () => {
     } catch (error) {
       fs.mkdirpSync(`${cachePath}/images/apple/people/`);
     }
-    fs.copySync(baseImagePath, baseImageCachePath);
     _.each(emojisShortnames, (shortname) => {
       fs.copySync(`${__dirname}/images/${shortname}.png`, `${cachePath}/images/apple/people/${shortname}.png`);
     });
@@ -51,11 +50,12 @@ describe('imageGenerator', () => {
         let finalPath = [process.cwd(), 'cache/images/base.png'].join('/');
         expect(path).to.equal(finalPath);
         expect(function() {
-          fs.accessSync(finalPath, fs.F_OK);
+          fs.accessSync(path, fs.F_OK);
         }).to.not.throw(Error);
 
-        let dimensions = sizeOf(finalPath);
-        expect(dimensions.height).to.equal(24);
+        let dimensions = sizeOf(path);
+        expect(dimensions.width).to.equal(24);
+        expect(dimensions.height).to.equal(25);
         done();
       }).catch(done);
     });
@@ -70,7 +70,8 @@ describe('imageGenerator', () => {
         }).to.not.throw(Error);
 
         let dimensions = sizeOf(grinningFacePath);
-        expect(dimensions.height).to.equal(24);
+        expect(dimensions.width).to.equal(24);
+        expect(dimensions.height).to.equal(25);
         done();
       }).catch(done);
     });
