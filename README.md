@@ -1,11 +1,11 @@
 # Emojis Sprite Generator ![emoji](https://github.com/arthur-feral/emojis-sprites-generator/blob/master/tests/generator/imageGenerator/images/grinning-face.png)
 
 ### Introduction
-Working in my company, I has to work on real time chat application and as a frontend engineer, they ask me to integrate an emojis popup to send emojis. The chat application works on both desktop and mobile. But emojis support is not great on all platforms and each has his own design. So to maximize the compatibility, the better way to have same emojis on all this platforms was sprites. So I've searched a place to find all emojis and their metadatas and came [Emojipedia.org](http://emojipedia.org/) and [Unicode.org](http://unicode.org/emoji/charts/full-emoji-list.html) gathering all i need for the job.
+In my company, I has to work on a real time chat application and as a frontend engineer, they ask me to integrate an emojis popup to send emojis. The chat application works on both desktop and mobile. But the emojis support is not great on all platforms and each has his own design. So to maximize the compatibility, the better way to have same emojis on all this platforms was sprites. So I've searched a place to find all emojis and their metadatas and came [Emojipedia.org](http://emojipedia.org/) and [Unicode.org](http://unicode.org/emoji/charts/full-emoji-list.html) gathering all i need for the job.
 
 ### Description
 
-I wonder this module will make you save time. It's a NodeJS application wich generate emojis sprite for many themes:
+I hope this module will make you save time. It's a NodeJS application wich generate emojis sprite for many themes:
 `
 'apple', 'emoji-one', 'emojidex', 'emojipedia', 'facebook', 'google', 'htc', 'lg', 'microsoft', 'mozilla', 'samsung', 'twitter', 'whatsapp'
 `
@@ -72,10 +72,13 @@ of course you will find the modifiers version of emojis (black skin etc...). The
 - 🖕🏿 Reversed Hand With Middle Finger Extended, Type-6
 
 ### How to use
+
 First install the package
 ```bash
 $ npm i -g emojis-trainer
 ```
+
+You will also have to install [GraphicsMagick](http://www.graphicsmagick.org/)
 
 Run help command to have details
 ```bash
@@ -109,7 +112,7 @@ $ emojis-trainer --preproc less -d path/to/the/folder -s 24 -c
 
 # Notes
 This is an early version. I know it needs some fixes and optimization but it works.
-Don't hesitate to help ! ❤️
+Please contribute if you found it useful! ❤️
 
 ```javascript
 return 'enjoy';
