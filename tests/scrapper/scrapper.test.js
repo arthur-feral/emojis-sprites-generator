@@ -10,11 +10,13 @@ const superagentMock = require('superagent-mock')(superagent, superagentConfig);
 const crawler = require('../../lib/crawler')(logger);
 const scrapper = require('../../lib/scrapper')(superagent, crawler, utils, logger);
 const emojisForCategory = require('../mocks/jsons/emojisForCategory.json');
+const emojispediaDatas = require('../mocks/jsons/emojispediaDatas.json');
 const emojipediaComplete = require('../mocks/jsons/emojipediaComplete.json');
 const imageUrl = 'http://emojipedia-us.s3.amazonaws.com/cache/d4/cb/d4cbe73fc2b24857dce3a0c28d3a77c1.png';
 const cacheImagesPath = [process.cwd(), 'cache/images'].join('/');
 const allThemes = ['apple', 'google', 'microsoft', 'samsung', 'lg', 'htc', 'facebook', 'twitter', 'mozilla', 'emoji-one', 'emojidex'];
 const allUrls = [];
+
 _.each(emojipediaComplete, (category) => {
   _.each(category.emojis, (emoji) => {
     _.each(emoji.themes, (url, theme) => {
@@ -29,6 +31,7 @@ _.each(emojipediaComplete, (category) => {
     }
   });
 });
+
 describe('scrapper', () => {
   after(() => {
     superagentMock.unset();
@@ -107,7 +110,7 @@ describe('scrapper', () => {
     describe('without cache', () => {
       it('fetch html from all emojis pages', (done) => {
         scrapper.scrapEmojis(false, emojisForCategory).then((datas) => {
-          expect(datas).to.deep.equal(emojipediaComplete);
+          expect(datas).to.deep.equal(emojispediaDatas);
           done();
         }).catch(done);
       });
