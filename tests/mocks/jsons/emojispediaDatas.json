@@ -3,8 +3,8 @@
     "name": "people",
     "url": "/people/",
     "fullName": "Smileys & People",
-    "emojis": [
-      {
+    "emojis": {
+      "grinning-face": {
         "shortname": "grinning-face",
         "char": "😀",
         "category": "people",
@@ -24,7 +24,7 @@
           "emojidex": "http://emojipedia-us.s3.amazonaws.com/cache/97/2b/972b0b6af61ec2d2316eaeec49641beb.png"
         }
       },
-      {
+      "winking-face": {
         "shortname": "winking-face",
         "char": "😉",
         "category": "people",
@@ -44,7 +44,7 @@
           "emojidex": "http://emojipedia-us.s3.amazonaws.com/cache/59/f8/59f81b4508d111376a2f0c40c16e5568.png"
         }
       },
-      {
+      "father-christmas": {
         "shortname": "father-christmas",
         "char": "🎅",
         "category": "people",
@@ -156,6 +156,6 @@
           }
         ]
       }
-    ]
+    }
   }
 }

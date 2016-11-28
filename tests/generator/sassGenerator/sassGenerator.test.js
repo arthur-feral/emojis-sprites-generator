@@ -22,11 +22,11 @@ describe('sassGenerator', () => {
     it('generate emoji scss rule', (done) => {
       let result = sassGenerator.emoji('emoji', 'grinning-face', 0);
       expect(result.indexOf(`.emoji-grinning-face {`)).to.not.equal(-1);
-      expect(result.indexOf(`background-position: 0 0;`)).to.not.equal(-1);
+      expect(result.indexOf(`background-position: 0px top;`)).to.not.equal(-1);
 
-      result = sassGenerator.emoji('emoji', 'winking-face', 24);
+      result = sassGenerator.emoji('emoji', 'winking-face', -24);
       expect(result.indexOf(`.emoji-winking-face {`)).to.not.equal(-1);
-      expect(result.indexOf(`background-position: -24px 0;`)).to.not.equal(-1);
+      expect(result.indexOf(`background-position: -24px top;`)).to.not.equal(-1);
 
       done();
     });
@@ -39,13 +39,13 @@ describe('sassGenerator', () => {
 
     it('generate sass stylesheet', (done) => {
       let lessContent;
-      sassGenerator.generate('apple', 'prefix', emojis, {width: 152, height: 24}, __dirname).then(() => {
+      sassGenerator.generate('apple', 'prefix', emojis, {width: 152, height: 25}, __dirname).then(() => {
         expect(function() {
           lessContent = fs.readFileSync(`${__dirname}/apple/apple.scss`, 'utf8');
         }).to.not.throw(Error);
 
         expect(lessContent.indexOf(`.prefix-winking-face {`)).to.not.equal(-1);
-        expect(lessContent.indexOf(`background-position: -25px 0`)).to.not.equal(-1);
+        expect(lessContent.indexOf(`background-position: -24px top`)).to.not.equal(-1);
 
         done();
       }).catch(done);

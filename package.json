@@ -1,11 +1,11 @@
 {
   "name": "emojis-trainer",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Build an emojis sprite and stylesheet file from emojis datas collected from both emojipedia.org and unicode.org website",
   "main": "index.js",
   "scripts": {
     "start": "node ./bin/emojis-trainer",
-    "test": "mocha --compilers js:babel-register -r tests/bootstrap.js $(find ./ -name '*.test.js')"
+    "test": "mocha --compilers js:babel-register -r tests/bootstrap.js $(find ./tests/ -name '*.test.js')"
   },
   "bin": {
     "emojis-trainer": "./bin/emojis-trainer.js"
@@ -38,6 +38,7 @@
     "globby": "^6.1.0",
     "gm": "^1.23.0",
     "image-size": "^0.5.0",
+    "jimp": "^0.2.27",
     "lodash": "^4.17.0",
     "superagent": "^2.3.0",
     "superagent-throttle": "^0.2.1",
