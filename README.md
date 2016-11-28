@@ -79,13 +79,13 @@ $ npm i -g emojis-trainer
 ```
 
 You will also have to install [GraphicsMagick](http://www.graphicsmagick.org/)
+
 On Mac
 ```bash
 $ brew install graphicsmagick
 ```
 
 On Linux
-On Mac
 ```bash
 $ sudo apt-get install graphicsmagick
 ```
