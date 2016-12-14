@@ -1,6 +1,6 @@
 {
   "name": "emojis-trainer",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Build an emojis sprite and stylesheet file from emojis datas collected from both emojipedia.org and unicode.org website",
   "main": "index.js",
   "scripts": {
