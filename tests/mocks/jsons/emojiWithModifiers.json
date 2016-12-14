@@ -4,6 +4,7 @@
   "category": "people",
   "fullName": "Father Christmas",
   "index": 0,
+  "unicode": "1f385",
   "themes": {
     "apple": "http://emojipedia-us.s3.amazonaws.com/cache/d4/cb/d4cbe73fc2b24857dce3a0c28d3a77c1.png",
     "google": "http://emojipedia-us.s3.amazonaws.com/cache/6d/22/6d226cea0d88106b5539fc4bfe311deb.png",
@@ -24,6 +25,7 @@
       "category": "people",
       "fullName": "Father Christmas, Type-1-2",
       "index": 0,
+      "unicode": "1f385-1f3fb",
       "url": "/father-christmas-type-1-2/"
     },
     {
@@ -32,6 +34,7 @@
       "category": "people",
       "fullName": "Father Christmas, Type-3",
       "index": 0,
+      "unicode": "1f385-1f3fc",
       "url": "/father-christmas-type-3/"
     },
     {
@@ -40,6 +43,7 @@
       "category": "people",
       "fullName": "Father Christmas, Type-4",
       "index": 0,
+      "unicode": "1f385-1f3fd",
       "url": "/father-christmas-type-4/"
     },
     {
@@ -48,6 +52,7 @@
       "category": "people",
       "fullName": "Father Christmas, Type-5",
       "index": 0,
+      "unicode": "1f385-1f3fe",
       "url": "/father-christmas-type-5/"
     },
     {
@@ -56,6 +61,7 @@
       "category": "people",
       "fullName": "Father Christmas, Type-6",
       "index": 0,
+      "unicode": "1f385-1f3ff",
       "url": "/father-christmas-type-6/"
     }
   ]

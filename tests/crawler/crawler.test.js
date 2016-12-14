@@ -48,6 +48,7 @@ describe('crawler', () => {
           "shortname": "grinning-face",
           "char": "😀",
           "category": "people",
+          "unicode": "1f600",
           "fullName": "Grinning Face"
         }, 0, griningFace, false);
 
@@ -62,6 +63,7 @@ describe('crawler', () => {
           "shortname": "father-christmas",
           "char": "🎅",
           "category": "people",
+          "unicode": "1f385",
           "fullName": "Father Christmas",
         }, 0, fatherChristmas, false);
 
