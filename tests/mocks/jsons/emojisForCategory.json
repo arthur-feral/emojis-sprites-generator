@@ -9,21 +9,24 @@
         "shortname": "grinning-face",
         "char": "😀",
         "category": "people",
-        "fullName": "Grinning Face"
+        "fullName": "Grinning Face",
+        "unicode": "1f600"
       },
       {
         "url": "/winking-face/",
         "shortname": "winking-face",
         "char": "😉",
         "category": "people",
-        "fullName": "Winking Face"
+        "fullName": "Winking Face",
+        "unicode": "1f609"
       },
       {
         "url": "/father-christmas/",
         "shortname": "father-christmas",
         "char": "🎅",
         "category": "people",
-        "fullName": "Father Christmas"
+        "fullName": "Father Christmas",
+        "unicode": "1f385"
       }
     ]
   }

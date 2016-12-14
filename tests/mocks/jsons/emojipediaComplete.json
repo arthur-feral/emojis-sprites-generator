@@ -10,6 +10,7 @@
         "category": "people",
         "fullName": "Grinning Face",
         "index": 0,
+        "unicode": "1f600",
         "themes": {
           "apple": "http://emojipedia-us.s3.amazonaws.com/cache/0f/71/0f716ab7dd220b19cbfd5f5890ebe8cb.png",
           "google": "http://emojipedia-us.s3.amazonaws.com/cache/a7/0e/a70ed4d5e4062aab6c4ac24892ee6763.png",
@@ -30,6 +31,7 @@
         "category": "people",
         "fullName": "Winking Face",
         "index": 1,
+        "unicode": "1f609",
         "themes": {
           "apple": "http://emojipedia-us.s3.amazonaws.com/cache/b9/24/b9247cb2ef2b835118c11e4e91e87b8f.png",
           "google": "http://emojipedia-us.s3.amazonaws.com/cache/9a/1b/9a1bf154caaa338f5e85eccf3c962af3.png",
@@ -50,6 +52,7 @@
         "category": "people",
         "fullName": "Father Christmas",
         "index": 2,
+        "unicode": "1f385",
         "themes": {
           "apple": "http://emojipedia-us.s3.amazonaws.com/cache/d4/cb/d4cbe73fc2b24857dce3a0c28d3a77c1.png",
           "google": "http://emojipedia-us.s3.amazonaws.com/cache/6d/22/6d226cea0d88106b5539fc4bfe311deb.png",
@@ -80,7 +83,8 @@
             "char": "🎅🏻",
             "category": "people",
             "fullName": "Father Christmas, Type-1-2",
-            "index": 2
+            "index": 2,
+            "unicode": "1f385-1f3fb"
           },
           {
             "themes": {
@@ -98,7 +102,8 @@
             "char": "🎅🏼",
             "category": "people",
             "fullName": "Father Christmas, Type-3",
-            "index": 2
+            "index": 2,
+            "unicode": "1f385-1f3fc"
           },
           {
             "themes": {
@@ -116,7 +121,8 @@
             "char": "🎅🏽",
             "category": "people",
             "fullName": "Father Christmas, Type-4",
-            "index": 2
+            "index": 2,
+            "unicode": "1f385-1f3fd"
           },
           {
             "themes": {
@@ -134,7 +140,8 @@
             "char": "🎅🏾",
             "category": "people",
             "fullName": "Father Christmas, Type-5",
-            "index": 2
+            "index": 2,
+            "unicode": "1f385-1f3fe"
           },
           {
             "themes": {
@@ -152,7 +159,8 @@
             "char": "🎅🏿",
             "category": "people",
             "fullName": "Father Christmas, Type-6",
-            "index": 2
+            "index": 2,
+            "unicode": "1f385-1f3ff"
           }
         ]
       }
