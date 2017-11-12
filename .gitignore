@@ -1,8 +1,15 @@
+**.DS_Store
 .idea/*
-
+dist/*
 node_modules/*
 test/*
 .DS_Store
 npm-debug.log
 cache
 emojis-generator/*
+yarn-error.log
+*npm-debug.log
+.nyc_output
+nyc-reports
+*lerna-debug.log
+*.swp
