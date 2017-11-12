@@ -1,10 +1,21 @@
-#!/usr/bin/env node
+import when from 'when';
 import {
   indexOf,
 } from 'lodash';
 import commander from 'commander';
+import config from './lib/config';
+import crawler from './lib/crawler';
+import parser from './lib/parser';
+import fetcher from './lib/fetcher';
+import generator from './lib/generator';
 
-const emojisModule = require('./lib/index.js');
+const tasks = [
+  crawler.run,
+  parser.run,
+  fetcher.run,
+  generator.run,
+];
+
 const packagejson = require('./package.json');
 const PREPROCS = ['sass', 'less'];
 const logger = require('./lib/logger');
@@ -25,3 +36,12 @@ if (!commander.preproc || indexOf(PREPROCS, commander.preproc) === -1) {
 
   return;
 }
+
+
+when.all(tasks.map(task => task.call(null, commander)))
+  .then(() => {
+
+  })
+  .catch((error) => {
+
+  });
