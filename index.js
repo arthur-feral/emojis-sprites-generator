@@ -3,20 +3,20 @@ import {
   indexOf,
 } from 'lodash';
 import commander from 'commander';
-import config from './lib/config';
-import crawler from './lib/crawler';
+import { configure } from './lib/config';
+import * as scrapper from './lib/scrapper';
 import parser from './lib/parser';
 import fetcher from './lib/fetcher';
 import generator from './lib/generator';
 
-const tasks = [
-  crawler.run,
-  parser.run,
-  fetcher.run,
-  generator.run,
-];
+// const tasks = [
+//   scrapper.run,
+//   parser.run,
+//   fetcher.run,
+//   generator.run,
+// ];
 
-const packagejson = require('./package.json');
+const packagejson = require([process.cwd(), 'package.json'].join('/'));
 const PREPROCS = ['sass', 'less'];
 const logger = require('./lib/logger');
 
@@ -30,18 +30,14 @@ commander
   .option('-c, --cache', 'Force cache use (use last cached html and images) Dont use it if you want last released emojis')
   .parse(process.argv);
 
-if (!commander.preproc || indexOf(PREPROCS, commander.preproc) === -1) {
-  logger.error(`Only ${PREPROCS} css preprocessors are supported`);
-  commander.help();
+const config = configure(commander);
+//
+// when.all(tasks.map(task => task.call(null, config)))
+//   .then(() => {
+//
+//   })
+//   .catch((error) => {
+//
+//   });
 
-  return;
-}
-
-
-when.all(tasks.map(task => task.call(null, commander)))
-  .then(() => {
-
-  })
-  .catch((error) => {
-
-  });
+scrapper.run(config);

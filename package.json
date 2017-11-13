@@ -4,7 +4,8 @@
   "description": "Build an emojis sprite and stylesheet file from emojis datas collected from both emojipedia.org and unicode.org website",
   "scripts": {
     "start": "node ./dist/index.js",
-    "transpile": "$(npm bin)/babel . --out-dir dist --ignore cache,tests,node_modules,nyc-reports,dist",
+    "dev": "node ./index.js",
+    "transpile": "$(npm bin)/babel . --out-dir dist --ignore cache,tests,node_modules,nyc-reports,dist,*.test.js",
     "prepublish": "yarn run test",
     "test": "nyc --check-coverage --report-dir=${CIRCLE_ARTIFACTS:-'./nyc-reports'} --reporter=lcov yarn run mocha",
     "mocha": "yarn run transpile && mocha --compilers js:babel-register -r tests/bootstrap.js $(find tests -name '*.test.js')"
@@ -46,14 +47,17 @@
     "image-size": "^0.5.0",
     "jimp": "^0.2.27",
     "lodash": "^4.17.0",
-    "superagent": "^2.3.0",
-    "superagent-throttle": "^0.2.1",
+    "superagent": "3.8.1",
+    "superagent-throttle": "0.2.5",
     "when": "^3.7.7"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.20.0",
-    "babel-polyfill": "^6.20.0",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-airbnb": "^2.4.0",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.18.0",
     "chai": "^3.5.0",
