@@ -47,7 +47,7 @@
     "gm": "^1.23.0",
     "image-size": "^0.5.0",
     "jimp": "^0.2.27",
-    "lodash": "^4.17.0",
+    "lodash": "^4.17.5",
     "superagent": "3.8.1",
     "superagent-throttle": "0.2.5"
   },
