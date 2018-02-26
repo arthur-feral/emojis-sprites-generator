@@ -8,9 +8,11 @@ npm-debug.log
 cache
 emojis-generator/*
 emojis/*
-yarn-error.log
 *npm-debug.log
-.nyc_output
 nyc-reports
 *lerna-debug.log
 *.swp
+
+.nyc_output/
+nyc-reports/
+yarn-*.log
