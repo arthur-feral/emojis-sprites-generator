@@ -1,3 +1,5 @@
+import fs from 'fs';
+import os from 'os';
 import {
   indexOf,
 } from 'lodash';
@@ -10,11 +12,12 @@ import EventEmitter from 'eventemitter3';
 import {
   APP_START,
 } from './lib/constants';
+import logger from './lib/logger';
 
 const emitter = new EventEmitter();
 
 const packagejson = require(`${process.cwd()}/package.json`);
-const logger = require('./lib/logger');
+const tempPath = os.tmpdir();
 
 commander
   .version(packagejson.version)
@@ -27,6 +30,14 @@ commander
   .parse(process.argv);
 
 const config = configure(commander);
+
+logger.info(`-- creating files space in ${tempPath}`);
+try {
+  fs.accessSync(`${tempPath}/images/`, fs.F_OK);
+} catch (error) {
+  fs.mkdirSync(`${tempPath}/images/`);
+}
+logger.info('-- Done.');
 
 const fetcher = Fetcher(config, emitter);
 const parser = Parser(config, emitter);
