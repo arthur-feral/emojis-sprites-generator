@@ -13,7 +13,7 @@ import {
 
 const emitter = new EventEmitter();
 
-const packagejson = require([process.cwd(), 'package.json'].join('/'));
+const packagejson = require(`${process.cwd()}/package.json`);
 const logger = require('./lib/logger');
 
 commander
