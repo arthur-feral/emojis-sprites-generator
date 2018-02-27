@@ -1,23 +1,19 @@
-import when from 'when';
 import {
   indexOf,
 } from 'lodash';
 import commander from 'commander';
 import { configure } from './lib/config';
-import * as scrapper from './lib/scrapper';
-import parser from './lib/parser';
-import fetcher from './lib/fetcher';
-import generator from './lib/generator';
+import Parser from './lib/parser/parser';
+import Fetcher from './lib/fetcher/fetcher';
+import Collector from './lib/collector/collector';
+import EventEmitter from 'eventemitter3';
+import {
+  APP_START,
+} from './lib/constants';
 
-// const tasks = [
-//   scrapper.run,
-//   parser.run,
-//   fetcher.run,
-//   generator.run,
-// ];
+const emitter = new EventEmitter();
 
 const packagejson = require([process.cwd(), 'package.json'].join('/'));
-const PREPROCS = ['sass', 'less'];
 const logger = require('./lib/logger');
 
 commander
@@ -31,13 +27,9 @@ commander
   .parse(process.argv);
 
 const config = configure(commander);
-//
-// when.all(tasks.map(task => task.call(null, config)))
-//   .then(() => {
-//
-//   })
-//   .catch((error) => {
-//
-//   });
 
-scrapper.run(config);
+const fetcher = Fetcher(config, emitter);
+const parser = Parser(config, emitter);
+const collector = Collector(config, emitter);
+
+emitter.emit(APP_START);
