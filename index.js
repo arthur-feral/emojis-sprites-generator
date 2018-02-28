@@ -1,18 +1,17 @@
 import fs from 'fs-extra';
 import os from 'os';
-import {
-  indexOf,
-} from 'lodash';
 import commander from 'commander';
 import { configure } from './lib/config';
 import Parser from './lib/parser/parser';
 import Fetcher from './lib/fetcher/fetcher';
 import Collector from './lib/collector/collector';
+import Generator from './lib/generator/generator';
 import EventEmitter from 'eventemitter3';
 import {
-  APP_START,
+  APP_START, ERROR,
 } from './lib/constants';
 import logger from './lib/logger';
+import jimp from 'jimp';
 
 const emitter = new EventEmitter();
 
@@ -31,14 +30,32 @@ commander
   .parse(process.argv);
 
 const config = configure(commander);
-
-logger.info(`-- creating files space in ${tempPath}`);
-fs.mkdirpSync(`${tempPath}/images/`);
-fs.mkdirpSync(`${tempPath}/html/`);
-logger.info('-- Done.');
-
 const fetcher = Fetcher(config, emitter);
 const parser = Parser(config, emitter);
 const collector = Collector(config, emitter);
+const generator = Generator(config, emitter);
+const imagesPath = `${tempPath}/images`;
+const BASE_IMAGE_PATH = `${imagesPath}/base.png`;
 
-emitter.emit(APP_START);
+logger.info(`-- Preparing files ${tempPath}`);
+fs.mkdirpSync(`${tempPath}/images/`);
+fs.mkdirpSync(`${tempPath}/html/`);
+jimp.read(`${process.cwd()}/res/base.png`).then((image) => {
+  image
+    .resize(parseInt(config.size, 10), parseInt(config.size, 10) + 1)
+    .write(BASE_IMAGE_PATH, (imageError) => {
+      if (imageError) {
+        emitter.emit(ERROR, imageError);
+      }
+
+      logger.success('-- Done.');
+      logger.info('-- Fetching data');
+      emitter.emit(APP_START);
+      logger.success('\n');
+      logger.success('-- Done.');
+    });
+}).catch((readError) => {
+  emitter.emit(ERROR, readError);
+});
+
+
