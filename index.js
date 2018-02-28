@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs from 'fs-extra';
 import os from 'os';
 import {
   indexOf,
@@ -17,7 +17,8 @@ import logger from './lib/logger';
 const emitter = new EventEmitter();
 
 const packagejson = require(`${process.cwd()}/package.json`);
-const tempPath = os.tmpdir();
+const tempPath = `${process.cwd()}/tmp`;
+// const tempPath = os.tmpdir();
 
 commander
   .version(packagejson.version)
@@ -35,7 +36,7 @@ logger.info(`-- creating files space in ${tempPath}`);
 try {
   fs.accessSync(`${tempPath}/images/`, fs.F_OK);
 } catch (error) {
-  fs.mkdirSync(`${tempPath}/images/`);
+  fs.mkdirpSync(`${tempPath}/images/`);
 }
 logger.info('-- Done.');
 

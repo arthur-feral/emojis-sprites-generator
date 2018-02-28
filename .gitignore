@@ -16,3 +16,4 @@ nyc-reports
 .nyc_output/
 nyc-reports/
 yarn-*.log
+tmp/
