@@ -8,7 +8,7 @@
     "transpile": "$(npm bin)/babel . --out-dir dist --ignore cache,tests,node_modules,nyc-reports,dist,*.test.js",
     "prepublish": "yarn run test",
     "test": "nyc --check-coverage --report-dir=${CIRCLE_ARTIFACTS:-'./nyc-reports'} --reporter=lcov yarn run mocha",
-    "mocha": "yarn run transpile && mocha --compilers js:babel-register -r tests/bootstrap.js $(find tests -name '*.test.js')"
+    "mocha": "mocha --compilers js:babel-register -r tests/bootstrap.js -r babel-polyfill $(find lib -name '*.test.js')"
   },
   "bin": {
     "emojis-trainer": "./bin/emojis-trainer.js"
