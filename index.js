@@ -33,11 +33,8 @@ commander
 const config = configure(commander);
 
 logger.info(`-- creating files space in ${tempPath}`);
-try {
-  fs.accessSync(`${tempPath}/images/`, fs.F_OK);
-} catch (error) {
-  fs.mkdirpSync(`${tempPath}/images/`);
-}
+fs.mkdirpSync(`${tempPath}/images/`);
+fs.mkdirpSync(`${tempPath}/html/`);
 logger.info('-- Done.');
 
 const fetcher = Fetcher(config, emitter);
