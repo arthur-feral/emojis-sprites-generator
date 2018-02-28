@@ -2,7 +2,6 @@
   "presets": [
     "env",
     "react",
-    "airbnb",
     "stage-0"
   ],
   "plugins": [

@@ -29,6 +29,9 @@ commander
   .option('-c, --cache', 'Force cache use (use last cached html and images) Dont use it if you want last released emojis')
   .parse(process.argv);
 
+logger.success('EMOJI-SPRITE-GENERATOR');
+logger.success('----------------------');
+
 const config = configure(commander);
 const fetcher = Fetcher(config, emitter);
 const parser = Parser(config, emitter);
@@ -37,25 +40,8 @@ const generator = Generator(config, emitter);
 const imagesPath = `${tempPath}/images`;
 const BASE_IMAGE_PATH = `${imagesPath}/base.png`;
 
-logger.info(`-- Preparing files ${tempPath}`);
-fs.mkdirpSync(`${tempPath}/images/`);
-fs.mkdirpSync(`${tempPath}/html/`);
-jimp.read(`${process.cwd()}/res/base.png`).then((image) => {
-  image
-    .resize(parseInt(config.size, 10), parseInt(config.size, 10) + 1)
-    .write(BASE_IMAGE_PATH, (imageError) => {
-      if (imageError) {
-        emitter.emit(ERROR, imageError);
-      }
+emitter.emit(APP_START);
 
-      logger.success('-- Done.');
-      logger.info('-- Fetching data');
-      emitter.emit(APP_START);
-      logger.success('\n');
-      logger.success('-- Done.');
-    });
-}).catch((readError) => {
-  emitter.emit(ERROR, readError);
+process.stdout.on('error', () => {
+  process.exit(1);
 });
-
-
