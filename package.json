@@ -50,7 +50,7 @@
     "image-size": "^0.5.0",
     "jimp": "^0.2.27",
     "lodash": "^4.17.5",
-    "superagent": "3.8.1",
+    "superagent": "3.8.2",
     "superagent-throttle": "0.2.5"
   },
   "devDependencies": {
@@ -67,7 +67,7 @@
     "mock-fs": "^3.12.1",
     "nyc": "^11.3.0",
     "sinon": "^1.17.6",
-    "superagent-mock": "^3.7.0"
+    "superagent-mock": "3.7.0"
   },
   "nyc": {
     "exclude": [

@@ -3118,7 +3118,7 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
-superagent-mock@^3.7.0:
+superagent-mock@3.7.0:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/superagent-mock/-/superagent-mock-3.7.0.tgz#d424909e2dbb0bd0e5ab213ef8df91e3cbbcd613"
 
@@ -3129,9 +3129,9 @@ superagent-throttle@0.2.5:
     superagent "^1.8.3"
     vow "^0.4.15"
 
-superagent@3.8.1:
-  version "3.8.1"
-  resolved "https://registry.yarnpkg.com/superagent/-/superagent-3.8.1.tgz#2571fd921f3fcdba43ac68c3b35c91951532701f"
+superagent@3.8.2:
+  version "3.8.2"
+  resolved "https://registry.yarnpkg.com/superagent/-/superagent-3.8.2.tgz#e4a11b9d047f7d3efeb3bbe536d9ec0021d16403"
   dependencies:
     component-emitter "^1.2.0"
     cookiejar "^2.1.0"
