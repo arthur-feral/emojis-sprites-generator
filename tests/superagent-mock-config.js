@@ -9,7 +9,6 @@ const fatherChristmas4 = fs.readFileSync(`${__dirname}/html/father-christmas-typ
 const fatherChristmas5 = fs.readFileSync(`${__dirname}/html/father-christmas-type-5.html`, 'utf8');
 const fatherChristmas6 = fs.readFileSync(`${__dirname}/html/father-christmas-type-6.html`, 'utf8');
 const winkingFace = fs.readFileSync(`${__dirname}/html/winking-face.html`, 'utf8');
-const emojipediaEmojiMultiple = fs.readFileSync(`${__dirname}/html/emojipediaEmojiMultiple.html`, 'utf8');
 const grinningFace = fs.readFileSync(`${__dirname}/html/grinning-face.html`, 'utf8');
 
 module.exports = [
@@ -59,10 +58,6 @@ module.exports = [
 
       if (match[1] === '/father-christmas-type-6/') {
         return fatherChristmas6;
-      }
-
-      if (match[1] === '/family-woman-woman-boy/') {
-        return emojipediaEmojiMultiple;
       }
 
       return index;
