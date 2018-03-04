@@ -17,3 +17,4 @@ nyc-reports
 nyc-reports/
 yarn-*.log
 tmp/
+tests/tmp
