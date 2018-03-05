@@ -10,12 +10,10 @@ import Collector from './lib/collector/collector';
 import Generator from './lib/generator/generator';
 import EventEmitter from 'eventemitter3';
 import {
-  APP_START, ERROR,
+  APP_START,
 } from './lib/constants';
-import logger from './lib/logger';
-import jimp from 'jimp';
 
-//process.env.TEMP_IMAGES_PATH = os.tmpdir();
+//process.env.TEMP_FILES_PATH = os.tmpdir();
 const emitter = new EventEmitter();
 
 const packagejson = require(`${process.cwd()}/package.json`);
@@ -37,9 +35,7 @@ const monitor = Monitor(config, emitter);
 const collector = Collector(config, emitter);
 const generator = Generator(config, emitter);
 
-console.log(process.env.TEMP_IMAGES_PATH);
-
-//emitter.emit(APP_START);
+emitter.emit(APP_START);
 
 process.stdout.on('error', () => {
   process.exit(1);

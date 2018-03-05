@@ -51,6 +51,7 @@
     "image-size": "^0.5.0",
     "jimp": "^0.2.27",
     "lodash": "^4.17.5",
+    "spritesmith": "^3.3.0",
     "superagent": "3.8.2",
     "superagent-throttle": "0.2.5"
   },
