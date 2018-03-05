@@ -1,4 +1,5 @@
-require('dotenv').config();
+PROCESS.env.TEMP_FILES_PATH = `${process.cwd()}/tmp`;
+
 import os from 'os';
 import commander from 'commander';
 import superagent from 'superagent';
