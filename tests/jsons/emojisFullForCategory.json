@@ -109,7 +109,16 @@
         "name": "father-christmas-type-1-2",
         "symbol": "🎅🏻",
         "category": "people",
-        "url": "https://emojipedia.org/father-christmas-type-1-2/"
+        "url": "https://emojipedia.org/father-christmas-type-1-2/",
+        "unicode": "1f385-1f3fb",
+        "shortnames": [
+          "father-christmas-type-1-2"
+        ],
+        "modifiers": {},
+        "themes": {
+          "apple": "https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/118/father-christmas_emoji-modifier-fitzpatrick-type-1-2_1f385-1f3fb_1f3fb.png"
+        },
+        "shortname": "father-christmas-type-1-2"
       },
       "father-christmas-type-3": {
         "parent": "father-christmas",
@@ -117,7 +126,16 @@
         "name": "father-christmas-type-3",
         "symbol": "🎅🏼",
         "category": "people",
-        "url": "https://emojipedia.org/father-christmas-type-3/"
+        "url": "https://emojipedia.org/father-christmas-type-3/",
+        "unicode": "1f385-1f3fc",
+        "shortnames": [
+          "father-christmas-type-3"
+        ],
+        "modifiers": {},
+        "themes": {
+          "apple": "https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/118/father-christmas_emoji-modifier-fitzpatrick-type-3_1f385-1f3fc_1f3fc.png"
+        },
+        "shortname": "father-christmas-type-3"
       },
       "father-christmas-type-4": {
         "parent": "father-christmas",
@@ -125,7 +143,16 @@
         "name": "father-christmas-type-4",
         "symbol": "🎅🏽",
         "category": "people",
-        "url": "https://emojipedia.org/father-christmas-type-4/"
+        "url": "https://emojipedia.org/father-christmas-type-4/",
+        "unicode": "1f385-1f3fd",
+        "shortnames": [
+          "father-christmas-type-4"
+        ],
+        "modifiers": {},
+        "themes": {
+          "apple": "https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/118/father-christmas_emoji-modifier-fitzpatrick-type-4_1f385-1f3fd_1f3fd.png"
+        },
+        "shortname": "father-christmas-type-4"
       },
       "father-christmas-type-5": {
         "parent": "father-christmas",
@@ -133,7 +160,16 @@
         "name": "father-christmas-type-5",
         "symbol": "🎅🏾",
         "category": "people",
-        "url": "https://emojipedia.org/father-christmas-type-5/"
+        "url": "https://emojipedia.org/father-christmas-type-5/",
+        "unicode": "1f385-1f3fe",
+        "shortnames": [
+          "father-christmas-type-5"
+        ],
+        "modifiers": {},
+        "themes": {
+          "apple": "https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/118/father-christmas_emoji-modifier-fitzpatrick-type-5_1f385-1f3fe_1f3fe.png"
+        },
+        "shortname": "father-christmas-type-5"
       },
       "father-christmas-type-6": {
         "parent": "father-christmas",
@@ -141,7 +177,16 @@
         "name": "father-christmas-type-6",
         "symbol": "🎅🏿",
         "category": "people",
-        "url": "https://emojipedia.org/father-christmas-type-6/"
+        "url": "https://emojipedia.org/father-christmas-type-6/",
+        "unicode": "1f385-1f3ff",
+        "shortnames": [
+          "father-christmas-type-6"
+        ],
+        "modifiers": {},
+        "themes": {
+          "apple": "https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/118/father-christmas_emoji-modifier-fitzpatrick-type-6_1f385-1f3ff_1f3ff.png"
+        },
+        "shortname": "father-christmas-type-6"
       }
     }
   }
