@@ -1,6 +1,3 @@
-PROCESS.env.TEMP_FILES_PATH = `${process.cwd()}/tmp`;
-
-import os from 'os';
 import commander from 'commander';
 import superagent from 'superagent';
 import { configure } from './lib/config/config';
@@ -14,7 +11,6 @@ import {
   APP_START,
 } from './lib/constants';
 
-//process.env.TEMP_FILES_PATH = os.tmpdir();
 const emitter = new EventEmitter();
 
 const packagejson = require(`${process.cwd()}/package.json`);
